@@ -1,0 +1,163 @@
+import SideBar from './SideBar'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router';
+import { setSelectPost } from '../Redux/PostSlice';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { SERVER_URL } from '../main';
+import toast from 'react-hot-toast';
+
+const EditPost = () => {
+
+    const { SelectPost } = useSelector(state => state.Post);
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [loading, setloading] = useState(false);
+    const [loadingSave, setloadingSave] = useState(false);
+    const [Caption, setcaption] = useState("");
+    const [notFound, setNotFound] = useState(false);
+
+    const handlePost = async () => {
+        try {
+            setloading(true);
+            const result = await axios.get(`${SERVER_URL}/api/post/selectPost/${id}`, { withCredentials: true });
+
+            if (!result.data?.selectPost) {
+                setNotFound(true);
+                return;
+            }
+
+            dispatch(setSelectPost(result.data?.selectPost));
+            console.log(result.data?.selectPost);
+            setloading(false);
+        }
+
+        catch (err) {
+            console.log("EditPost Error :", err.message);
+            setloading(false);
+            setNotFound(true);
+        }
+    }
+
+    const handleEditPost = async () => {
+        try {
+            setloadingSave(true);
+
+            const result = await axios.put(`${SERVER_URL}/api/post/editpost/${id}`, { Caption }, { withCredentials: true });
+
+            dispatch(setSelectPost(result.data));
+
+            toast.success("Edit Post Successfull");
+            navigate(`/postDetails/${id}`);
+            setloadingSave(false);
+        }
+
+        catch (err) {
+            console.log("EditPost Error :", err.message);
+            setloadingSave(false);
+        }
+    }
+
+    useEffect(() => {
+        handlePost();
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (SelectPost?.Caption) {
+            setcaption(SelectPost.Caption);
+        }
+    }, [SelectPost]);
+
+    if (loading) {
+        return (
+            <div className='flex w-[100%] h-[100%]'>
+                <div className='w-[17%]'>
+                    <SideBar />
+                </div>
+
+                <div className='w-[83%] xl:px-90 px-50 pt-10 pb-5 animate-pulse'>
+                    <div className='h-6 w-32 bg-gray-300 rounded mb-5'></div>
+
+                    <div className='flex gap-3 items-center mb-5'>
+                        <div className='h-11 w-11 bg-gray-300 rounded-full' />
+                        <div className='flex flex-col gap-1'>
+                            <div className='h-4 w-28 bg-gray-300 rounded'></div>
+                            <div className='h-3 w-20 bg-gray-200 rounded'></div>
+                        </div>
+                    </div>
+
+                    <div className='w-full h-[400px] bg-gray-200 rounded-lg mb-5'></div>
+
+                    <div className='h-5 w-24 bg-gray-300 mb-2 rounded'></div>
+                    <div className='h-20 w-full bg-gray-100 rounded-lg'></div>
+
+                    <div className='mt-5 h-10 w-32 bg-gray-300 rounded'></div>
+                </div>
+            </div>
+        )
+    }
+
+    if (notFound) {
+        return (
+            <div className='flex w-[100%] h-[100%]'>
+                <div className='w-[17%]'>
+                    <SideBar />
+                </div>
+                <div className='w-[83%] px-10 pt-10 flex flex-col justify-center items-center text-center'>
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png"
+                        alt="Not Found"
+                        className="w-32 h-32 mb-6"
+                    />
+                    <h2 className='text-2xl font-bold text-gray-700 mb-2'>Post Not Found</h2>
+                    <p className='text-gray-500'>The post you are trying to edit does not exist or the ID is invalid.</p>
+                    <button onClick={() => navigate('/')} className='cursor-pointer mt-4 px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'>
+                        Go Back Home
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+
+    return (
+        <div className='flex w-[100%] h-[100%]'>
+
+            <div className='w-[17%]'>
+                <SideBar loadingSave={loadingSave} id={id} />
+            </div>
+
+            <div className='w-[83%] xl:px-90 px-50 pt-10 pb-5 overflow-auto scroll-smooth'>
+                <div>
+                    <h1 className=" font-bold text-[22px] mb-5 cursor-pointer">Edit Post</h1>
+                </div>
+
+                <div className='flex gap-3'>
+                    <img src={SelectPost?.Author?.Image} className="h-11 w-11 rounded-full border-1 border-gray-200" />
+
+                    <div className='flex flex-col justify-center'>
+                        <p className="font-semibold text-md">{SelectPost?.Author?.Username}</p>
+                        <p className="text-gray-600 text-[14px] mt-[-4px]">{SelectPost?.Author?.Fullname}</p>
+                    </div>
+                </div>
+
+                <div className='mt-3 px-0.5'>
+                    <img src={SelectPost?.Image} className='mt-2 border-1 border-gray-300 rounded-lg w-full h-full max-h-[55vh]' />
+                </div>
+
+                <div className='mt-3 px-0.5'>
+                    <p className='font-semibold text-lg'>Caption <span>:</span> </p>
+                    <textarea rows={3} className={`mt-1 w-full p-2 rounded-lg outline-0 border-1 border-gray-200 resize-none`} value={Caption} onChange={(e) => setcaption(e.target.value)} />
+                </div>
+
+                <div className='mt-3 px-0.5'>
+                    <button className='text-white w-30 bg-blue-500 px-4 py-1.5 rounded-lg hover:bg-blue-600 font-semibold cursor-pointer outline-blue-700' onClick={handleEditPost} disabled={loadingSave}>{!loadingSave ? "Save Post" : "Saving..."}</button>
+                </div>
+            </div>
+
+        </div>
+    )
+}
+
+export default EditPost

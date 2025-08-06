@@ -1,0 +1,16 @@
+:: Client ::
+
+=> npm i                                                                        
+=> npm i tailwind @tailwindcss/vite                                                              
+=> npm i react-router-dom                                                              
+=> npm i react-router                                                              
+=> npm i cors                                                              
+=> npm i axios                                                              
+=> npm i react-hot-toast                                                              
+=> npm i react-redux                                                              
+=> npm i @reduxjs/toolkit                                                              
+=> npm i redux-thunk                                                              
+=> npm i react-icons                                                              
+=> npm i millify                                                              
+=> npm i socket.io-client                                                              
+=> npm i emailjs-com                                                              

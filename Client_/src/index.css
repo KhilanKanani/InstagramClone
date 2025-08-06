@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* ScrollBar Hidden Karne Ke Liye */
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    scrollbar-width: none;
+}

@@ -1,0 +1,13 @@
+:: Server ::
+
+=> npm init -y
+=> npm i nodemon
+=> npm i express
+=> npm i dotenv
+=> npm i mongoose
+=> npm i jsonwebtoken
+=> npm i cookies-parser
+=> npm i cors
+=> npm i cloudinary
+=> npm i multer
+=> npm i socket.io

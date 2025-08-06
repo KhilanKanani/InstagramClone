@@ -1,0 +1,1 @@
+Store Image Public Folder And React Functonality Is Remove All Image In Public Folder

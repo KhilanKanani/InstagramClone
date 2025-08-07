@@ -75,11 +75,11 @@ const ProfileData = () => {
     if (profileLoading) {
         return (
             <div className="flex w-full h-full">
-                <div className="w-[17%]">
+                <div className="lg:w-[17%]">
                     <SideBar />
                 </div>
 
-                <div className="w-[83%] px-80 pt-10 pb-5">
+                <div className=";g:w-[83%] lg:px-80 px-4 lg:pt-10 pt-20 pb-5">
                     <div className="animate-pulse space-y-5">
                         <div className="h-6 bg-gray-300 rounded w-1/3 mb-3"></div>
 
@@ -114,18 +114,18 @@ const ProfileData = () => {
     return (
         <div className='flex w-[100%] h-[100%]'>
 
-            <div className='w-[17%]'>
+            <div className='lg:w-[17%]'>
                 <SideBar />
             </div>
 
-            <div className='w-[83%] px-80 pb-5 overflow-auto scroll-smooth'>
+            <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-20 px-4 pb-5 overflow-auto scroll-smooth'>
                 <div className=''>
-                    <div className='flex bg-white top-0 z-[10] w-full pt-10 pb-5 items-center gap-3 fixed'>
+                    <div className='flex bg-white top-0 z-[10] w-full lg:pt-10 pt-20 pb-5 items-center gap-3 fixed'>
                         <IoArrowBackSharp className='w-5 h-5 mt-[3px] cursor-pointer' onClick={() => Userdata?.user?._id === id ? navigate("/profile") : navigate(`/selectprofile/${id}`)} />
                         <p className='font-bold text-2xl'>{profileData?.user?.Username}</p>
                     </div>
 
-                    <div className="mt-5 pt-20 border-gray-300 border-b-1 flex gap-20 justify-center">
+                    <div className="mt-5 lg:pt-15 pt-25 border-gray-300 border-b-1 flex lg:gap-20 gap-10 justify-center">
                         <p className={`flex gap-1 pb-3 justify-center items-center pt-3 opacity-50 cursor-pointer ${select == "Followers" ? "border-b-1 font-semibold opacity-100 mb-[-0.5px] border-black" : "border-t-0"}`} onClick={() => { setselect("Followers") }}> <span>{profileData?.user?.Followers.length}</span> Followers</p>
                         <p className={`flex gap-1 pb-3 justify-center items-center pt-3 opacity-50 cursor-pointer ${select == "Following" ? "border-b-1 font-semibold opacity-100 mb-[-0.5px] border-black" : "border-t-0"}`} onClick={() => { setselect("Following") }}> <span>{profileData?.user?.Following.length}</span> Following</p>
                     </div>
@@ -164,11 +164,10 @@ const ProfileData = () => {
                                 </div>
                             ))
 
-                            : <p className='ml-1 mt-5 font-semibold text-gray-400'>No Followers</p>
+                            : <p className='ml-1 mt-5 text-center font-semibold text-gray-400'>No Followers</p>
                         }
                     </div>
                 }
-
 
                 {
                     select === "Following" &&
@@ -204,7 +203,7 @@ const ProfileData = () => {
                                     </div>
                                 ))
 
-                                : <p className='mt-5 font-semibold text-gray-400'>Not Following Anyone</p>
+                                : <p className='mt-5 text-center font-semibold text-gray-400'>Not Following Anyone</p>
                         }
                     </div>
                 }

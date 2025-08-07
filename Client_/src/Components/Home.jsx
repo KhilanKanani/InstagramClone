@@ -198,18 +198,18 @@ const Home = () => {
   return (
     <div className='flex w-[100%] h-[100%]'>
 
-      <div className='w-[17%]'>
+      <div className='lg:w-[17%]'>
         <SideBar />
       </div>
 
       {/* Middle Section */}
-      <div className='w-[51%] px-30 mt-5 mb-5 overflow-auto h-full'>
+      <div className='lg:w-[51%] w-full sm:px-30 px-1 lg:mt-5 mt-17 mb-15 overflow-auto h-full'>
         {
           loading
-            ? <div className='flex flex-col gap-6 mt-5' >
+            ? <div className='flex flex-col gap-6' >
               {
                 [1, 2, 3].map(i => (
-                  <div key={i} className='border-b-2 border-gray-200 pb-5 animate-pulse'>
+                  <div key={i} className='border-b-2 border-gray-200 mt-3 pb-5 animate-pulse'>
                     <div className='flex items-center gap-3'>
                       <div className='h-11 w-11 bg-gray-300 rounded-full'></div>
                       <div className='flex flex-col gap-1'>
@@ -218,7 +218,7 @@ const Home = () => {
                       </div>
                     </div>
 
-                    <div className='mt-4 w-full h-100 bg-gray-300 rounded-md'></div>
+                    <div className='mt-4 w-full xl:h-100 h-90 bg-gray-300 rounded-md'></div>
 
                     <div className='flex justify-between mt-4'>
                       <div className='flex gap-4'>
@@ -239,7 +239,7 @@ const Home = () => {
                 Post?.Post?.filter(item => followStates[item?.Author?._id]).length > 0 ?
                   Post?.Post?.map((item, index) => (
                     followStates[item?.Author?._id] &&
-                    <div key={index} className='m-3 border-b-2 border-gray-300 pb-5'>
+                    <div key={index} className='sm:m-3 mt-3 border-b-2 border-gray-300 pb-5'>
 
                       <div className='flex justify-between items-center'>
                         <div className='flex gap-3 px-0.5 cursor-pointer' onClick={() => Userdata?.user?._id == item?.Author?._id ? navigate("/profile") : navigate(`/selectProfile/${item?.Author?._id}`)}>
@@ -261,7 +261,7 @@ const Home = () => {
                           <div className='relative'>
                             <p><IoMenu onClick={() => setToggle((id) => (id == item?._id ? null : item?._id))} className='w-7 h-7 cursor-pointer' /></p>
 
-                            <div className={`${toggle !== item?._id ? "hidden" : ""} w-40 p-3 flex flex-col gap-1 rounded-lg bg-gray-100 absolute z-[10] right-0`}>
+                              <div className={`${toggle !== item?._id ? "hidden" : ""} sm:w-38 w-34 sm:text-[16px] text-sm  p-3 flex flex-col gap-1 rounded-lg bg-gray-100 absolute z-[10] right-0`}>
                               {
                                 Userdata?.user?._id == item?.Author?._id &&
                                 <p className='p-1 hover:bg-gray-200 px-4 rounded-lg cursor-pointer text-center font-semibold text-red-600' onClick={() => handleDeletePost(item?._id)}>Delete</p>
@@ -289,7 +289,7 @@ const Home = () => {
                         </div>
                       </div>
 
-                      <img src={item?.Image} onClick={() => window.open(item?.Image, "_blank")} className="cursor-pointer mt-5 border-1 border-gray-200 rounded-md  w-full" />
+                      <img src={item?.Image} onClick={() => window.open(item?.Image, "_blank")} className="cursor-pointer sm:mt-5 mt-3 border-1 border-gray-200 rounded-md h-90 w-full" />
 
                       <div className='flex justify-between items-center mt-3 px-0.5 relative'>
                         <div className='flex items-center gap-3'>
@@ -304,7 +304,7 @@ const Home = () => {
                           <p><LuSend className="h-6.5 w-6.5 mb-[-4px] cursor-pointer" onClick={() => setSendToggle(id => id == item?._id ? null : item?._id)} /></p>
                           {
                             sendToggle === item?._id &&
-                            <div className='absolute left-20 bottom-0 border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto w-80 z-10 flex flex-col gap-2'>
+                              <div className='absolute lg:bottom-0 left-10 bottom-[30px] border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto sm:w-80 w-fit z-10 flex flex-col gap-2'>
                               <p className='font-semibold text-gray-600'>Send this post to:</p>
                               <input type="text" placeholder="Write a message..." className="border rounded px-2 py-1.5 text-[15px] border-gray-300 outline-none" value={sendInput} onChange={(e) => setSendInput(e.target.value)} />
 
@@ -359,9 +359,9 @@ const Home = () => {
                         })}
                       </p>
 
-                      <div onClick={() => setSendToggle(null)} className='flex gap-1 mt-1 px-0.5'>
+                      <div onClick={() => setSendToggle(null)} className='flex sm:flex-row flex-col sm:gap-1 mt-1 px-0.5'>
                         <span className='font-bold'>{item?.Author?.Username}</span>
-                        <p className='font-semibold'>-</p>
+                        <p className='sm:block hidden font-semibold'>-</p>
                         <p className={`cursor-pointer whitespace-pre-wrap ${select ? "" : "line-clamp-2"}`} onClick={() => setselect(prev => !prev)}>{item?.Caption}</p>
                       </div>
 
@@ -383,7 +383,7 @@ const Home = () => {
       </div>
 
       {/* RightSideBar */}
-      <div className='w-[31%] pr-40 mt-8 flex flex-col gap-7 fixed right-0' onClick={() => { setToggle(null); setSendToggle(null) }}>
+      <div className='lg:w-[31%] hidden xl:pr-40 pr-10 mt-8 lg:flex flex-col gap-7 fixed right-0' onClick={() => { setToggle(null); setSendToggle(null) }}>
         <div className='flex justify-between items-center'>
           <div className='flex gap-3'>
             <img src={Userdata?.user?.Image} className="h-11 w-11 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => navigate("/profile")} />

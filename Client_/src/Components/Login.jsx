@@ -54,58 +54,65 @@ export const Login = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen ">
-      <div className="flex flex-col items-center h-[510px] border-1 border-gray-400 px-5 rounded-sm">
-        <img
-          src={InstaLogo}
-          className=" my-2 w-50 h-17 mix-blend-multiply mt-5"
-        />
-
-        <h1 className="text-[17px] font-semibold opacity-60 text-center mt-3 w-[320px]"> Login to see photos and videos from your friends </h1>
-
-        <div className="flex flex-col gap-3 items-center mt-5 w-full">
-          <input
-            type="email"
-            placeholder="Email"
-            className="border p-1.5 w-full rounded-sm outline-0 border-gray-400 bg-gray-100"
-            onChange={(e) => setEmail(e.target.value)}
-            value={Email}
-            disabled={loader}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="border p-1.5 w-full rounded-sm outline-0 border-gray-400 bg-gray-100"
-            onChange={(e) => setPassword(e.target.value)}
-            value={Password}
-            disabled={loader}
-          />
-
-          <div className="flex flex-col items-center justify-center mt-5 w-full">
-            <button
-              type="submit"
-              className={`text-white p-2 w-full rounded-md cursor-pointer ${loader ? "bg-blue-400" : "bg-blue-500 hover:bg-blue-600"}`}
-              onClick={handleLogin}
-              disabled={loader}
-            >
-              {loader ? "Loading..." : "Login"}
-            </button>
-          </div>
-
-          <div className="flex items-center justify-center mt-5 w-full">
-            <hr className="border-gray-400 w-full" />
-            <span className="px-3 font-semibold text-[15px] opacity-60">
-              OR
-            </span>
-            <hr className="border-gray-400 w-full" />
-          </div>
-
-          <div className="flex items-center justify-center mt-1.5 gap-1">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-100">
+         <div className="flex flex-col items-center w-full max-w-sm sm:max-w-sm h-[auto] border border-gray-300 px-4 py-6 rounded-xl shadow-md bg-white">
+   
+           <img
+             src={InstaLogo}
+             alt="InstaLogo"
+             className="my-2 w-40 h-14 mix-blend-multiply mt-3"
+           />
+   
+           <h1 className="text-[16px] sm:text-[17px] font-semibold opacity-60 text-center mt-3 w-full max-w-xs">
+             Signup to see photos and videos from your friends
+           </h1>
+   
+           <div className="flex flex-col gap-4 items-center mt-5 w-full">
+             <input
+               type="email"
+               placeholder="Email"
+               className="border p-3 w-full rounded-lg outline-none border-gray-300 bg-gray-100 focus:ring-2 focus:ring-blue-300 transition-all duration-200 shadow-sm"
+               value={Email}
+               onChange={(e) => setEmail(e.target.value)}
+               disabled={loader}
+             />
+             <input
+               type="password"
+               placeholder="Password"
+               className="border p-3 w-full rounded-lg outline-none border-gray-300 bg-gray-100 focus:ring-2 focus:ring-blue-300 transition-all duration-200 shadow-sm"
+               value={Password}
+               onChange={(e) => setPassword(e.target.value)}
+               disabled={loader}
+             />
+   
+             <div className="flex flex-col items-center justify-center mt-4 w-full">
+               <button
+                 type="submit"
+                 className={`text-white text-sm p-3 cursor-pointer w-full rounded-lg transition-all duration-200 shadow-md ${loader ? "bg-blue-400" : "bg-blue-500 hover:bg-blue-600" }`}
+                 onClick={handleLogin}
+                 disabled={loader}
+               >
+                 {loader ? "Loading..." : "Login"}
+               </button>
+             </div>
+   
+             <div className="flex items-center justify-center mt-5 w-full">
+               <hr className="border-gray-400 w-full" />
+               <span className="px-3 font-semibold text-[14px] opacity-60">OR</span>
+               <hr className="border-gray-400 w-full" />
+             </div>
+   
+             <div className="flex items-center justify-center mt-2 gap-1 text-sm">
             <p>Don't have an account ?</p>
-            <span className="text-blue-500 font-bold cursor-pointer" onClick={() => navigate("/signup")}>Signup</span>
-          </div>
-        </div>
-      </div>
-    </div>
+               <span
+                 className="text-blue-500 font-bold cursor-pointer hover:underline"
+                 onClick={() => navigate("/signup")}
+               >
+                 Signup
+               </span>
+             </div>
+           </div>
+         </div>
+       </div>
   );
 };

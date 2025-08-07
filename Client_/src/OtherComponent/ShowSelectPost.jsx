@@ -149,11 +149,11 @@ const ShowSelectPost = () => {
         try {
             setloading(true);
             const result = await axios.get(`${SERVER_URL}/api/post/selectPost/${id}`, { withCredentials: true });
-            
+
             if (!result.data?.selectPost) {
                 setNotFound(true); // If post is not returned
-            } 
-            
+            }
+
             dispatch(setSelectPost(result.data?.selectPost));
             setloading(false);
         }
@@ -190,11 +190,11 @@ const ShowSelectPost = () => {
     if (loading) {
         return (
             <div className='flex w-full h-full'>
-                <div className='w-[17%]'>
+                <div className='lg:w-[17%]'>
                     <SideBar />
                 </div>
 
-                <div className='w-[83%] xl:px-80 px-50 pt-10 pb-5 overflow-auto scroll-smooth'>
+                <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-4 lg:pt-10 pt-20 pb-5 overflow-auto scroll-smooth'>
 
                     {/* Fake post cards */}
                     <div className=''>
@@ -208,7 +208,7 @@ const ShowSelectPost = () => {
                         </div>
 
                         {/* Image block */}
-                        <div className='w-full h-115 animate-pulse  bg-gray-200 rounded-lg mb-4'></div>
+                        <div className='w-full lg:h-115 sm:h-100 h-70 animate-pulse  bg-gray-200 rounded-lg mb-4'></div>
 
                         {/* Buttons */}
                         <div className='animate-pulse flex items-center justify-between'>
@@ -219,11 +219,14 @@ const ShowSelectPost = () => {
                             <div className='w-6 h-6 bg-gray-300 rounded-full'></div>
                         </div>
 
+                        <div className='w-24 mt-5 h-3 bg-gray-200 rounded mb-2'></div>
+
                         {/* Caption and Like */}
                         <div className='mt-4 animate-pulse'>
-                            <div className='w-24 h-3 bg-gray-200 rounded mb-2'></div>
-                            <div className='w-full h-2 bg-gray-100 rounded mb-1'></div>
-                            <div className='w-[75%] h-2 bg-gray-100 rounded'></div>
+                            <div className='w-40 h-3 bg-gray-200 rounded mb-2'></div>
+                            <div className='w-full mt-1 h-2 bg-gray-100 rounded mb-1'></div>
+                            <div className='w-[80%] h-2 bg-gray-100 rounded mb-1'></div>
+                            <div className='w-[65%] h-2 bg-gray-100 rounded'></div>
                         </div>
                     </div>
                 </div>
@@ -233,19 +236,19 @@ const ShowSelectPost = () => {
 
     if (notFound) {
         return (
-            <div className='flex w-full h-full'>
-                <div className='w-[17%]'>
+            <div className='flex w-[100vw] h-[100vh]'>
+                <div className='lg:w-[17%]'>
                     <SideBar />
                 </div>
 
-                <div className='w-[83%] xl:px-80 px-50 pt-10 pb-5 flex flex-col justify-center items-center text-center'>
+                <div className='lg:w-[83%] w-full px-4 flex flex-col justify-center items-center text-center'>
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/7486/7486800.png"
                         alt="Post not found"
                         className="w-36 h-36 mb-4"
                     />
                     <h2 className='text-2xl font-bold text-gray-800 mb-1'>Post Not Found</h2>
-                    <p className='text-gray-500 mb-4'>The post you're looking for doesn’t exist or has been removed.</p>
+                    <p className='text-gray-500 mb-4 sm:w-75'>The post you're looking for doesn’t exist or has been removed.</p>
                     <button
                         onClick={() => navigate('/explore')}
                         className='bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold'
@@ -261,11 +264,11 @@ const ShowSelectPost = () => {
     return (
         <div className='flex w-[100%] h-[100vh]'>
 
-            <div className='w-[17%]' onClick={() => setToggle(false)}>
+            <div className='lg:w-[17%]' onClick={() => setToggle(false)}>
                 <SideBar />
             </div>
 
-            <div className='w-[83%] xl:px-80 px-50 pt-10 pb-5 overflow-auto scroll-smooth'>
+            <div className='lg:w-[83%] xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-4 lg:pb-5 pb-20 lg:pt-10 pt-20 overflow-auto scroll-smooth'>
                 <div className='rounded-lg flex flex-col gap-2'>
                     <div className='flex gap-3 items-center justify-between'>
                         <div className='flex gap-3 cursor-pointer' onClick={() => { navigate(`/selectProfile/${SelectPost?.Author?._id}`), setToggle(false), setSendToggle(null) }}>
@@ -280,7 +283,7 @@ const ShowSelectPost = () => {
                         <div className='relative'>
                             <p><IoMenu onClick={() => setToggle(prev => !prev)} className='w-7 h-7 cursor-pointer' /></p>
 
-                            <div className={`${!toggle ? "hidden" : ""} w-38 p-3 flex flex-col gap-1 rounded-lg bg-gray-100 absolute z-[10] right-0`}>
+                            <div className={`${!toggle ? "hidden" : ""} sm:w-38 w-34 sm:text-[16px] text-sm p-3 flex flex-col gap-1 rounded-lg bg-gray-100 absolute z-[10] right-0`}>
                                 {
                                     Userdata?.user?._id == SelectPost?.Author?._id &&
                                     <p className='p-1 hover:bg-gray-200 px-4 rounded-lg cursor-pointer text-center font-semibold text-red-600' onClick={handleDeletePost}>Delete</p>
@@ -307,12 +310,12 @@ const ShowSelectPost = () => {
                     </div>
 
                     <div onClick={() => { setToggle(false), setSendToggle(null) }}>
-                        <img src={SelectPost?.Image} className='mt-2 border-1 border-gray-300 rounded-lg cursor-pointer w-full h-full max-h-[68vh]' onClick={() => window.open(SelectPost?.Image, "_blank")} />
+                        <img src={SelectPost?.Image} className='mt-2 border-1 border-gray-300 rounded-lg cursor-pointer w-full h-full max-h-[68vh] min-h-90 shadow-md' onClick={() => window.open(SelectPost?.Image, "_blank")} />
                     </div>
 
                     <div className='flex justify-between items-center mt-3 px-0.5' onClick={() => { setToggle(false) }}>
                         <div className='flex items-center gap-3'>
-                            <p>
+                            <p onClick={() => { setToggle(false), setSendToggle(null) }} className='cursor-pointer'>
                                 {
                                     like
                                         ? <FaHeart className="h-6.5 w-6.5 cursor-pointer text-red-600" onClick={handleToggleLike} />
@@ -323,7 +326,7 @@ const ShowSelectPost = () => {
                                 <p><LuSend className="h-6.5 w-6.5 mb-[-4px] cursor-pointer" onClick={() => setSendToggle(prev => !prev)} /></p>
                                 {
                                     sendToggle &&
-                                    <div className='absolute left-10 bottom-0 border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto w-80 z-10 flex flex-col gap-2'>
+                                    <div className='absolute lg:bottom-0 lg:left-10 bottom-[30px] left-0 border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto lg:w-80 w-fit z-10 flex flex-col gap-2'>
                                         <p className='font-semibold text-gray-600'>Send this post to:</p>
                                         <input type="text" placeholder="Write a message..." className="border rounded px-2 py-1.5 text-[15px] border-gray-300 outline-none" value={sendInput} onChange={(e) => setSendInput(e.target.value)} />
 
@@ -361,7 +364,7 @@ const ShowSelectPost = () => {
                             </div>
                         </div>
 
-                        <p onClick={() => setSendToggle(null)}>
+                        <p onClick={() => { setSendToggle(null), setToggle(false) }}>
                             {
                                 save
                                     ? <RiSaveFill className="h-6.5 w-6.5 cursor-pointer" onClick={handleSavePost} />

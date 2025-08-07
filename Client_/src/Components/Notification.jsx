@@ -9,22 +9,22 @@ const Notification = () => {
     return (
         <div className="flex w-full h-full">
             {/* Sidebar */}
-            <div className="w-[17%] bg-white border-r">
+            <div className="lg:w-[17%]">
                 <SideBar />
             </div>
 
             {/* Notification List */}
-            <div className="w-[83%]  pb-5 overflow-auto scroll-smooth">
+            <div className="lg:w-[83%] pb-5 pt-10 lg:pt-0 px-4 w-full  overflow-auto scroll-smooth">
                 {
                     Notification?.length > 0 &&
-                    <h1 className="text-2xl font fixed font-bold pb-5 px-50 bg-white w-full pt-10 z-[10] text-gray-800">Notifications</h1>
+                    <h1 className="text-2xl font fixed font-bold pb-5 xl:px-50 lg:px-30 bg-white w-full pt-10 z-[10] text-gray-800">Notifications</h1>
                 }
                 {
                     Notification?.length > 0 ?
-                        <div className="flex px-50 mr-40 flex-col mt-25 gap-5">
+                        <div className="flex  xl:px-50 lg:px-30 lg:mr-40 flex-col mt-23 gap-5">
                             {
                                 Notification.map((item, index) => (
-                                    <div key={index} className="flex items-start gap-4 bg-white p-4 rounded-2xl shadow-md hover:shadow-lg border border-gray-200 transition-shadow duration-300">
+                                    <div key={index} className="flex items-start gap-4 bg-white p-4 rounded-xl shadow-md hover:shadow-lg border border-gray-200 transition-shadow duration-300">
                                         <img src={item?.user?.Image || '/default-avatar.png'} alt="User" className="w-12 h-12 rounded-full object-cover border-2 border-gray-200" />
                                         <div className="flex flex-col justify-between">
                                             <p className="text-lg font-semibold text-gray-800"> {item?.user?.Username || 'Unknown User'}</p>

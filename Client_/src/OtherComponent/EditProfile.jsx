@@ -6,6 +6,7 @@ import { SERVER_URL } from "../main";
 import { setUserdata } from "../Redux/UserSlice";
 import { useNavigate } from "react-router";
 import SideBar from "./SideBar";
+import { IoArrowBackSharp } from "react-icons/io5";
 
 const EditProfile = () => {
 
@@ -36,7 +37,7 @@ const EditProfile = () => {
                 return;
             }
 
-            if (Fullname.length > 19) {
+            if (Fullname.length > 15) {
                 toast.error("Fullname Is Too Long");
                 setLoader(false);
                 return;
@@ -48,7 +49,7 @@ const EditProfile = () => {
                 return;
             }
 
-            if (Username.length > 19) {
+            if (Username.length > 14) {
                 toast.error("Username Is Too Long");
                 setLoader(false);
                 return;
@@ -83,17 +84,18 @@ const EditProfile = () => {
 
     return (
         <div className="flex w-[100%] h-[100%] mb-10">
-            <div className="w-[17%] h-[100%]">
+            <div className="lg:w-[17%] h-[100%]">
                 <SideBar />
             </div>
 
-            <div className="lg:px-50 px-30 mt-10 w-[83%]  h-[100%] ">
-                <div>
+            <div className="lg:px-50 sm:px-30 px-4 lg:mt-10 mt-20 mb-10 lg:w-[83%]  h-[100%] ">
+                <div className="flex gap-1 items-center">
+                    <p className='inline lg:hidden' onClick={() => navigate(`/profile`)}> <IoArrowBackSharp className='text-[22px] mt-1 mb-5 cursor-pointer' /></p>
                     <h1 className=" font-bold text-[22px] mb-5 cursor-pointer">Edit Profile</h1>
                 </div>
 
                 <div className="">
-                    <div className="flex justify-between items-center px-5 w-full bg-gray-100 h-[90px] rounded-xl mt-3">
+                    <div className="flex justify-between items-center lg:px-5 px-2 w-full bg-gray-100 h-[90px] rounded-xl mt-3">
                         <div className="flex items-center gap-5">
                             <input type="file" ref={image} accept="image/*" onChange={handleImage} hidden />
                             <img src={frontendImage || "ChatlyDp.png"} className="h-15 w-15 cursor-pointer rounded-full border-1 border-gray-200" onClick={() => image.current.click()} />
@@ -103,30 +105,30 @@ const EditProfile = () => {
                             </div>
                         </div>
 
-                        <button className="text-white bg-blue-500 px-4 py-1.5 rounded-lg hover:bg-blue-600 font-semibold cursor-pointer" onClick={() => image.current.click()}>
+                        <button className="text-white bg-blue-500 lg:px-4 px-2 hidden sm:block py-1.5 rounded-lg hover:bg-blue-600 font-semibold cursor-pointer" onClick={() => image.current.click()}>
                             Change Photo
                         </button>
                     </div>
 
-                    <div className="mt-7">
-                        <h2 className="font-bold text-lg mb-3">Full Name</h2>
+                    <div className="mt-5 lg:mt-7">
+                        <h2 className="font-bold text-lg mb-2 lg:mb-3">Full Name</h2>
                         <input type="text" value={Fullname} className="border border-gray-200 rounded-lg p-3 w-full " onChange={(e) => setFullname(e.target.value)} />
 
                     </div>
 
-                    <div className="mt-7">
-                        <h2 className="font-bold text-lg mb-3">Username</h2>
+                    <div className="mt-5 lg:mt-7">
+                        <h2 className="font-bold text-lg mb-2 lg:mb-3">Username</h2>
                         <input type="text" value={Username} className="border border-gray-200 rounded-lg p-3 w-full " onChange={(e) => setUsername(e.target.value)} />
                     </div>
 
-                    <div className="mt-7">
-                        <h2 className="font-bold text-lg mb-3">Email</h2>
+                    <div className="mt-5 lg:mt-7">
+                        <h2 className="font-bold text-lg mb-2 lg:mb-3">Email</h2>
                         <input type="email" value={Userdata?.user?.Email || ''} className="border border-gray-200 rounded-lg p-3 w-full outline-0 bg-gray-200 text-gray-500 opacity-80" readOnly />
 
                     </div>
 
-                    <div className="mt-7">
-                        <h2 className="font-bold text-lg mb-3">Bio</h2>
+                    <div className="mt-5 lg:mt-7">
+                        <h2 className="font-bold text-lg mb-2 lg:mb-3">Bio</h2>
                         <textarea
                             cols={20}
                             className="border border-gray-200 rounded-lg p-3 w-full resize-none "

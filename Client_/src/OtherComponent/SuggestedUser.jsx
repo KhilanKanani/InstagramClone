@@ -39,70 +39,88 @@ const OtherUser = () => {
             followMap[item._id] = item?.Followers?.includes(Userdata?.user?._id);
         });
         setFollowStates(followMap);
-        setSuggestLoading(false);
+        setSuggestLoading(false); 
     }, [Otheruser, Userdata]);
 
 
     return (
-        <div className="flex w-[100%] h-[100%] ">
-            <div className="w-[17%]">
+        <div className="flex w-full h-full bg-gradient-to-b from-white to-gray-50">
+            {/* Sidebar */}
+            <div className="lg:w-[17%]">
                 <SideBar />
             </div>
 
-            <div className="mt-20 mb-5 w-[83%] h-full flex flex-col items-center">
-                <div className='h-[100%] flex flex-col gap-4 w-[45%]'>
+            {/* Main */}
+            <div className="mt-20 mb-5 lg:w-[83%] w-full h-[100vh] flex flex-col items-center">
+                <div className="w-full max-w-xl px-4 flex flex-col gap-3">
 
-                    <div>
-                        <h1 className="font-semibold text-[22px] mb-3">Suggested User</h1>
-                    </div>
+                    {/* Title */}
+                    <h1 className="font-bold text-[24px] text-gray-800 tracking-tight">Suggested Users</h1>
 
-                    {
-                        suggestLoading
-                            ? [...Array(12)].map((_, index) => (
-                                <div key={index} className="flex justify-between items-center animate-pulse">
-                                    <div className="flex gap-3">
-                                        <div className="h-11 w-11 bg-gray-300 rounded-full"></div>
-                                        <div className="flex flex-col justify-center gap-2">
-                                            <div className="h-4 w-32 bg-gray-200 rounded"></div>
-                                            <div className="h-3 w-24 bg-gray-100 rounded"></div>
-                                        </div>
+                    {/* Content */}
+                    {suggestLoading ? (
+                        [...Array(10)].map((_, index) => (
+                            <div key={index} className="flex items-center justify-between gap-3 p-3 rounded-lg shadow animate-pulse bg-white border border-gray-200">
+                                <div className="flex gap-3 items-center">
+                                    <div className="h-11 w-11 rounded-full bg-gray-300" />
+                                    <div className="flex flex-col gap-2">
+                                        <div className="h-4 w-32 bg-gray-200 rounded" />
+                                        <div className="h-3 w-24 bg-gray-100 rounded" />
                                     </div>
-                                    <div className="h-8 w-20 bg-gray-200 rounded"></div>
                                 </div>
-                            ))
-                            : Otheruser?.otherUser?.length > 0 && Otheruser?.otherUser?.map(item => (
-                                <div key={item._id} className='flex justify-between items-center' >
-                                    <div className='flex gap-3 cursor-pointer' onClick={() => { navigate(`/selectProfile/${item._id}`) }}>
-                                        <div className='relative'>
-                                            <img src={item?.Image} className="h-11 w-11 rounded-full cursor-pointer" />
-                                            {
-                                                OnlineUser?.includes(item?._id)
-                                                && <div className='absolute bottom-0.5 right-0 bg-green-600 h-2.5 w-2.5 rounded-full'></div>
-                                            }
-                                        </div>
-                                        <div className='flex flex-col justify-center'>
-                                            <p className="font-semibold text-md">{item?.Username}</p>
-                                            <p className="text-gray-600 text-[14px] mt-[-4px]">{item?.Fullname}</p>
-                                        </div>
+                                <div className="h-8 w-20 bg-gray-200 rounded" />
+                            </div>
+                        ))
+                    ) : (
+                        Otheruser?.otherUser?.map(user => (
+                            <div
+                                key={user._id}
+                                className="flex items-center justify-between p-3 rounded-lg shadow-md bg-white hover:shadow-lg transition-all duration-200 border border-gray-200"
+                            >
+                                {/* Left user info */}
+                                <div
+                                    className="flex gap-4 items-center cursor-pointer group"
+                                    onClick={() => navigate(`/selectProfile/${user._id}`)}
+                                >
+                                    <div className="relative">
+                                        <img
+                                            src={user?.Image}
+                                            alt={user?.Fullname}
+                                            className="h-12 w-12 rounded-full object-cover transition-transform duration-200 group-hover:scale-105 border border-gray-300"
+                                        />
+                                        {OnlineUser?.includes(user._id) && (
+                                            <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 ring-2 ring-white animate-pulse" />
+                                        )}
                                     </div>
-
-                                    <button onClick={() => handleFollowUnfollow(item?._id)} disabled={loading}>
-                                        {
-                                            followStates[item._id]
-                                                ? <p className="text-black px-3 bg-gray-200 py-1 cursor-ointer rounded-md font-semibold outline-0 cursor-pointer">Following</p>
-                                                : <p className="bg-blue-500  hover:bg-blue-600 text-white cursor-ointer py-1 px-4 rounded-md font-semibold outline-0 cursor-pointer">Follow</p>
-                                        }
-                                    </button>
+                                    <div className="flex flex-col">
+                                        <p className="font-semibold text-[15px] text-gray-800">{user?.Username}</p>
+                                        <p className="text-gray-500 text-sm">{user?.Fullname}</p>
+                                    </div>
                                 </div>
-                            ))
-                    }
 
-                    <div>
-                        <p className='font-semibold text-gray-300 text-sm text-center'>&copy;2025 - Present Kk's Pvt Ltd...</p>
-                    </div>
+                                {/* Follow Button */}
+                                <button
+                                    onClick={() => handleFollowUnfollow(user._id)}
+                                    disabled={loading}
+                                    className={`text-sm font-semibold px-3 py-1.5 rounded-md transition-all duration-200 ${followStates[user._id]
+                                            ? 'bg-gray-200 text-black hover:bg-gray-300'
+                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                        }`}
+                                >
+                                    {followStates[user._id] ? 'Following' : 'Follow'}
+                                </button>
+                            </div>
+                        ))
+                    )}
+
+                    {/* Footer */}
+                    <p className="text-gray-400 text-sm text-center mt-5 mb-3 font-medium">
+                        &copy; 2025 - Present Kk's Pvt Ltd.
+                    </p>
                 </div>
             </div>
         </div>
+
     )
 }
 

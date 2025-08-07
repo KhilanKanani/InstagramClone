@@ -94,16 +94,16 @@ const Messages = () => {
     return (
         <div className='flex w-[100%] overflow-auto h-[100%]'>
 
-            <div className='w-[17%]'>
+            <div className='lg:w-[17%] hidden lg:block'>
                 <SideBar />
             </div>
 
-            <div className='w-[50%] h-full' onClick={() => setToggle(false)}>
+            <div className={`lg:w-[50%] ${selectUser ? "w-[100vw] h-screen" : "w-0"} h-full`} onClick={() => setToggle(false)}>
                 {
                     selectUser
-                        ? <div className='h-full flex flex-col justify-between'>
-                            <div className='fixed z-[10] bg-white pt-5 w-[50%] px-1.5 flex items-center gap-1 border-b-1 border-gray-200 pb-3'>
-                                <p onClick={() => dispatch(setSelectUser(null))}><IoArrowBackSharp className='w-6 h-6 cursor-pointer' /></p>
+                        ? <div className='h-full w-full flex flex-col justify-between'>
+                            <div className='fixed z-[10] w-full bg-white pt-5 lg:w-[50%] px-1.5  flex items-center gap-1 border-b-1 border-gray-200 pb-3'>
+                                <p onClick={() => dispatch(setSelectUser(null))}><IoArrowBackSharp className='text-[22px] cursor-pointer' /></p>
                                 <div className='flex gap-3'>
                                     <div className='relative'>
                                         <img src={selectUser?.Image} className="h-11 w-11 rounded-full cursor-pointer" />
@@ -119,7 +119,7 @@ const Messages = () => {
                                 </div>
                             </div>
 
-                            <div ref={ScrollRef} className='h-[82vh] mt-21 flex flex-col p-2 overflow-y-auto scroll-smooth'>
+                            <div ref={ScrollRef} className='h-[81vh] mt-21 flex flex-col p-2 overflow-y-auto scroll-smooth'>
                                 {
                                     <div className='flex flex-col gap-3 items-center mt-3 mb-10'>
                                         <img src={selectUser?.Image} className="h-30 w-30 rounded-full border-1 border-gray-300" />
@@ -145,7 +145,7 @@ const Messages = () => {
                                 }
                             </div>
 
-                            <div className='px-5 pt-2 pb-5 fixed bottom-0 bg-white w-[50%]'>
+                            <div className='px-4 pt-2 pb-5 fixed bottom-0 bg-white w-full lg:w-[50%]'>
                                 <input type="file" hidden accept='image/*' ref={Image} onChange={handleImageUpload} />
                                 {
                                     frontendImage &&
@@ -163,7 +163,7 @@ const Messages = () => {
                                 }
                             </div>
                         </div>
-                        : <div className="flex flex-col items-center justify-center h-[100vh] shadow-inner text-gray-600">
+                        : <div className="hidden lg:flex flex-col items-center justify-center h-[100vh] shadow-inner text-gray-600">
                             <div className="bg-white p-6 rounded-full shadow-md mb-6">
                                 <img
                                     src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
@@ -182,9 +182,10 @@ const Messages = () => {
                 }
             </div>
 
-            <div className='w-[33%] h-full overflow-y-auto scroll-smooth border-l-1 border-gray-200'>
-                <div className='pt-8 fixed h-[145px] top-0 z-[10] bg-white w-[33%]' >
-                    <div className='px-5  border-b-1 items-center border-gray-200 pb-3 flex gap-1'>
+            <div className={`lg:w-[33%] ${selectUser ? "w-0" : "w-[100vw]"} h-[100vh] overflow-y-auto scroll-smooth lg:border-l-1 bg-white border-gray-200`}>
+                <div className='lg:pt-8 pt-5 fixed h-[135px] lg:h-[145px] top-0 z-[10] bg-white lg:w-[33%] w-full' >
+                    <div className='lg:px-4 px-1.5 border-b-1 items-center border-gray-200 pb-3 flex gap-1'>
+                        <p className='inline lg:hidden' onClick={() => navigate(`/`)}> <IoArrowBackSharp className='text-[22px] mt-1 cursor-pointer' /></p>
                         <p className='font-bold text-2xl'>{Userdata?.user?.Username}</p>
                         <p><IoIosArrowDown className='w-4 cursor-pointer h-4' onClick={() => setToggle(prev => !prev)} /></p>
 
@@ -193,22 +194,22 @@ const Messages = () => {
                         </div>
                     </div>
 
-                    <div className='relative px-5 w-full' onClick={() => setToggle(false)}>
-                        <span><IoSearch className='h-6 w-6 absolute bottom-5 left-7 cursor-pointer' /></span>
-                        <input type="text" value={search} onChange={(e) => setsearch(e.target.value)} className='bg-gray-100 rounded-md mt-3 mb-3 outline-0 py-2 px-11 w-full' placeholder='Search...' />
+                    <div className='relative lg:px-4 px-1.5 w-full' onClick={() => setToggle(false)}>
+                        <span><IoSearch className='h-6 w-6 absolute bottom-5 lg:left-7 left-4 cursor-pointer' /></span>
+                        <input type="text" value={search} onChange={(e) => setsearch(e.target.value)} className='bg-gray-100  focus:ring-2 focus:ring-blue-400 outline-none transition-all rounded-md mt-3 mb-3 outline-0 py-2 px-11 w-full' placeholder='Search...' />
                         {
                             search &&
-                            <span><RxCross2 className='h-6 w-6 absolute bottom-5 right-7 cursor-pointer' onClick={() => setsearch("")} /></span>
+                            <span><RxCross2 className='h-6 w-6 absolute bottom-5 lg:right-6 right-4 cursor-pointer' onClick={() => setsearch("")} /></span>
                         }
                     </div>
                 </div>
 
-                <div className='px-6 pt-37 h-[calc(100vh)] flex flex-col gap-3 bg-white overflow-y-auto'>
+                <div className='lg:px-4 px-1.5 lg:pt-37 pt-34 w-full h-[100%] flex flex-col gap-3 z-[10] bg-white overflow-y-auto'>
                     {
                         isLoading
                             ? [...Array(10)].map((_, index) => (
-                                <div key={index} className="flex gap-3 items-center animate-pulse px-2 py-2">
-                                    <div className="h-11 w-11 rounded-full bg-gray-300"></div>
+                                <div key={index} className="flex gap-3 items-center animate-pulse">
+                                    <div className="h-11 w-13 rounded-full bg-gray-300"></div>
                                     <div className="flex flex-col gap-1 w-full">
                                         <div className="h-4 w-2/5 bg-gray-300 rounded"></div>
                                         <div className="h-3 w-1/4 bg-gray-200 rounded"></div>
@@ -216,23 +217,27 @@ const Messages = () => {
                                 </div>
                             ))
                             :// Userdata?.user?.Following?.length > 0 ?
-                            filterData?.map(item => (
-                                // Userdata?.user?.Following?.includes(item?._id) &&
-                                <div key={item?._id} className='flex gap-3 cursor-pointer items-center' onClick={() => { dispatch(setSelectUser(item)), setToggle(false), setsearch(""), setinput(""), setfrontendImage(""), setbackendImage("") }}>
-                                    <div className='relative'>
-                                        <img src={item?.Image} className="h-11 w-11 rounded-full cursor-pointer" />
-                                        {
-                                            OnlineUser?.includes(item?._id) &&
-                                            <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white shadow-sm" />
-                                        }
-                                    </div>
+                            filterData?.length > 0
+                                ? filterData?.map(item => (
+                                    // Userdata?.user?.Following?.includes(item?._id) &&
+                                    <div key={item?._id} className='flex gap-3 cursor-pointer items-center' onClick={() => { dispatch(setSelectUser(item)), setToggle(false), setsearch(""), setinput(""), setfrontendImage(""), setbackendImage("") }}>
+                                        <div className='relative'>
+                                            <img src={item?.Image} className="h-11 w-11 rounded-full cursor-pointer" />
+                                            {
+                                                OnlineUser?.includes(item?._id) &&
+                                                <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white shadow-sm" />
+                                            }
+                                        </div>
 
-                                    <div className='flex flex-col justify-center'>
-                                        <p className="font-semibold text-md ">{item?.Fullname} </p>
-                                        <p className=" text-gray-600 text-[14px] mt-[-4px] flex items-center">{item?.Username}</p>
+                                        <div className='flex flex-col justify-center'>
+                                            <p className="font-semibold text-md ">{item?.Fullname} </p>
+                                            <p className=" text-gray-600 text-[14px] mt-[-4px] flex items-center">{item?.Username}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
+                                ))
+                                : <p className="text-center text-gray-500 text-md font-medium">
+                                    No users found
+                                </p>
                         // :: Following User Is Zero, You Can not Follow Anyone ::
                         // : <div className="flex flex-col gap-8 py-10 overflow-y-auto min-h-[80vh]">
                         //     <div className="text-center">
@@ -265,12 +270,9 @@ const Messages = () => {
                         //     </div>
                         // </div>
                     }
-
-                    {
-                        <p className='p-1 mb-5 font-semibold text-gray-300 text-center'>&copy;2025 - Present Kk's Pvt Ltd...</p>
-                    }
                 </div>
             </div>
+
         </div >
     )
 }

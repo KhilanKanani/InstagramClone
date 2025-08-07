@@ -82,13 +82,13 @@ const ShowSelectProfile = () => {
     return (
         <div className='flex w-[100%] h-[100vh]'>
 
-            <div className='w-[17%]'>
+            <div className='lg:w-[17%]'>
                 <SideBar />
             </div>
 
             {
                 isLoading
-                    ? <div className='w-[83%] px-30 mt-10'>
+                    ? <div className='lg:w-[83%] mt-20 w-full lg:px-30 lg:mt-10'>
                         {/* Profile Header Loading */}
                         <div className="w-full h-[230px] flex gap-20">
                             <div>
@@ -129,7 +129,7 @@ const ShowSelectProfile = () => {
                         </div>
                     </div>
 
-                    : <div className='w-[83%] px-30 mt-10'>
+                    : <div className='lg:w-[83%] mt-20 w-full lg:px-30 lg:mt-10'>
                         <div className="w-full h-[230px] flex gap-20">
                             <div>
                                 <img src={selectProfile?.user?.Image} className="h-40 w-40 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => window.open(selectProfile?.user?.Image, "_blank")} />
@@ -204,10 +204,6 @@ const ShowSelectProfile = () => {
 
                             }
                         </div>
-
-                        {
-                            follow && SelectUserPost?.Post?.length > 0 && <p className='py-5 font-semibold text-gray-300 text-center'>&copy;2025 - Present Kk's Pvt Ltd...</p>
-                        }
                     </div>
             }
         </div>

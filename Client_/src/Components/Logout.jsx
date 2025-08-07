@@ -37,7 +37,7 @@ const Logout = () => {
                 dispatch(setOnlineUser(null));
 
                 toast.success("Logout Successfull...");
-                navigate("/login");
+                navigate("/login"); 
             }
 
             catch (err) {

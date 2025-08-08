@@ -194,7 +194,7 @@ const ShowSelectPost = () => {
                     <SideBar />
                 </div>
 
-                <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-4 lg:pt-10 pt-20 pb-5 overflow-auto scroll-smooth'>
+                <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-1 lg:pt-10 mt-18 pb-15 overflow-auto scroll-smooth'>
 
                     {/* Fake post cards */}
                     <div className=''>
@@ -241,7 +241,7 @@ const ShowSelectPost = () => {
                     <SideBar />
                 </div>
 
-                <div className='lg:w-[83%] w-full px-4 flex flex-col justify-center items-center text-center'>
+                <div className='lg:w-[83%] w-full px-1 flex flex-col justify-center items-center text-center'>
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/7486/7486800.png"
                         alt="Post not found"
@@ -268,7 +268,7 @@ const ShowSelectPost = () => {
                 <SideBar />
             </div>
 
-            <div className='lg:w-[83%] xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-4 lg:pb-5 pb-20 lg:pt-10 pt-20 overflow-auto scroll-smooth'>
+            <div className='lg:w-[83%] xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-1 lg:pb-5 pb-18 lg:pt-10 pt-18 overflow-auto scroll-smooth'>
                 <div className='rounded-lg flex flex-col gap-2'>
                     <div className='flex gap-3 items-center justify-between'>
                         <div className='flex gap-3 cursor-pointer' onClick={() => { navigate(`/selectProfile/${SelectPost?.Author?._id}`), setToggle(false), setSendToggle(null) }}>

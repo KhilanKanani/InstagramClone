@@ -88,7 +88,7 @@ export const Login = () => {
              <div className="flex flex-col items-center justify-center mt-4 w-full">
                <button
                  type="submit"
-                 className={`text-white text-sm p-3 cursor-pointer w-full rounded-lg transition-all duration-200 shadow-md ${loader ? "bg-blue-400" : "bg-blue-500 hover:bg-blue-600" }`}
+                 className={`text-white  p-3 cursor-pointer w-full rounded-lg transition-all duration-200 shadow-md ${loader ? "bg-blue-400" : "bg-blue-500 hover:bg-blue-600" }`}
                  onClick={handleLogin}
                  disabled={loader}
                >
@@ -102,7 +102,7 @@ export const Login = () => {
                <hr className="border-gray-400 w-full" />
              </div>
    
-             <div className="flex items-center justify-center mt-2 gap-1 text-sm">
+             <div className="flex items-center justify-center mt-2 gap-1">
             <p>Don't have an account ?</p>
                <span
                  className="text-blue-500 font-bold cursor-pointer hover:underline"

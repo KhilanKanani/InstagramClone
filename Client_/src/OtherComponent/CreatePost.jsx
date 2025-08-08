@@ -66,8 +66,8 @@ const CreatePost = () => {
                 <SideBar loading={loading} />
             </div>
 
-            <div className="xl:px-80 lg:px-40 md:px-30 sm:px-10 px-4 w-full lg:w-[83%] min-h-screen flex items-center justify-center bg-gray-50">
-                <div className="w-full bg-white border border-gray-200 rounded-xl shadow-xl px-6 py-6 flex flex-col gap-4">
+            <div className="xl:px-80 lg:px-40 md:px-30 sm:px-10 px-1 w-full lg:w-[83%] min-h-screen flex items-center justify-center bg-gray-50">
+                <div className="w-full bg-white border border-gray-200 rounded-xl shadow-xl lg:px-6 px-3 py-3 lg:py-6 flex flex-col gap-4">
 
                     {/* Top Header or User Info */}
                     {!frontendpost ? (
@@ -118,7 +118,7 @@ const CreatePost = () => {
                         ) : (
                             <img
                                 src={frontendpost}
-                                className="rounded-md w-full object-fit border border-gray-300 p-2 lg:h-[470px] h-[250px] shadow-md"
+                                className="rounded-md w-full border border-gray-300 p-2 xl:h-[470px] lg:h-[390px] md:h-[340px] h-[250px] shadow-md"
                             />
                         )}
                     </div>

@@ -160,7 +160,7 @@ const SideBar = ({ loading, loadingSave, id }) => {
 
             {/*  Mobile Size */}
             <div>
-                <div className="fixed top-0 left-0 right-0 h-[60px] bg-gray-50 border-b border-gray-200 z-50 flex items-center justify-between sm:px-5 px-3 lg:hidden">
+                <div className={`flex fixed top-0 left-0 right-0 h-[60px] bg-gray-50 border-b border-gray-200 z-50 items-center justify-between sm:px-5 px-1 lg:hidden`}>
                     <img src={InstaLogo} alt="InstaLogo" className="h-10 w-auto mix-blend-multiply" />
                     <div className="flex gap-4 text-2xl text-gray-700">
                         <div className="cursor-pointer relative" onClick={() => { currentPath === "/notification"; handleNavigate("/notification") }}>

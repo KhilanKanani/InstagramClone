@@ -185,7 +185,7 @@ const Messages = () => {
             <div className={`lg:w-[33%] ${selectUser ? "w-0" : "w-[100vw]"} h-[100vh] overflow-y-auto scroll-smooth lg:border-l-1 bg-white border-gray-200`}>
                 <div className='lg:pt-8 pt-5 fixed h-[135px] lg:h-[145px] top-0 z-[10] bg-white lg:w-[33%] w-full' >
                     <div className='lg:px-4 px-1.5 border-b-1 items-center border-gray-200 pb-3 flex gap-1'>
-                        <p className='inline lg:hidden' onClick={() => navigate(`/`)}> <IoArrowBackSharp className='text-[22px] mt-1 cursor-pointer' /></p>
+                        <p className='inline lg:hidden' onClick={() => navigate(`/`)}> <IoArrowBackSharp className='text-[22px] mt-0.5 cursor-pointer' /></p>
                         <p className='font-bold text-2xl'>{Userdata?.user?.Username}</p>
                         <p><IoIosArrowDown className='w-4 cursor-pointer h-4' onClick={() => setToggle(prev => !prev)} /></p>
 
@@ -270,6 +270,16 @@ const Messages = () => {
                         //     </div>
                         // </div>
                     }
+                    <div className="flex items-center justify-between mt-3 px-3 py-3 bg-white rounded-lg shadow-md border border-gray-200">
+                        <p className="text-gray-800 font-bold text-base">💡Suggested User</p>
+                        <button
+                            onClick={() => navigate("/suggestedUser")}
+                            className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-sm transition-all"
+                        >
+                            See All
+                        </button>
+                    </div>
+
                 </div>
             </div>
 

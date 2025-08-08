@@ -40,29 +40,32 @@ const Profile = () => {
                 <SideBar />
             </div>
 
-            <div className='lg:w-[83%] w-[100vw] lg:px-30 px-2 lg:pt-10 pt-20 pb-5 overflow-auto scroll-smooth'>
+            <div className='lg:w-[83%] w-[100vw] lg:px-30 px-1 lg:pt-10 pt-18 pb-10 overflow-auto scroll-smooth'>
                 <div className="w-full flex sm:gap-20 xs:gap-7 gap-3">
-                    <div>
-                        <img src={Userdata?.user?.Image || "ChatlyDp.png"} className="lg:h-40 h-30 lg:w-40 w-30 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => window.open(Userdata?.user?.Image, "_blank")} />
-                    </div>
+                    <img src={Userdata?.user?.Image || "ChatlyDp.png"} className="lg:h-40 h-30 lg:w-40 w-30 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => window.open(Userdata?.user?.Image, "_blank")} />
 
-                    <div className="flex flex-col gap-5">
-                        <div className="flex lg:flex-row flex-col sm:gap-5 gap-2">
+                    <div className="flex flex-col lg:gap-5 gap-3">
+                        <div className="flex lg:flex-row flex-col items-start justify-start sm:gap-5 gap-1">
                             <p className="font-bold text-xl">{Userdata?.user?.Username}</p>
                             <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer sm:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => navigate("/editprofile")}>Edit Profile</button>
                         </div>
 
-                            <div className=" flex lg:gap-10 xs:gap-5 gap-2">
-                                <p className="font-bold text-xl flex lg:flex-row flex-col items-center justify-center lg:gap-1">{Userpost?.Post?.length && millify(Userpost?.Post?.length) || "0"} <span className="text-gray-400 text-[13px] sm:text-[14px] font-semibold lg:mt-1">Post</span></p>
-                                <p onClick={() => { localStorage.setItem("select", "Followers"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{millify(Userdata?.user?.Followers.length)} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Followers</span></p>
-                                <p onClick={() => { localStorage.setItem("select", "Following"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{millify(Userdata?.user?.Following.length)} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Following</span></p>
-                            </div>
+                        <div className=" flex lg:gap-10 xs:gap-5 gap-2">
+                            <p className="font-bold text-xl flex lg:flex-row flex-col items-center justify-center lg:gap-1">{Userpost?.Post?.length && millify(Userpost?.Post?.length) || "0"} <span className="text-gray-400 text-[13px] sm:text-[14px] font-semibold lg:mt-1">Post</span></p>
+                            <p onClick={() => { localStorage.setItem("select", "Followers"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{millify(Userdata?.user?.Followers.length) || "0"} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Followers</span></p>
+                            <p onClick={() => { localStorage.setItem("select", "Following"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{millify(Userdata?.user?.Following.length) || "0"} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Following</span></p>
+                        </div>
 
-                        <div className="">
+                        <div className="lg:block hidden">
                             <p className="font-bold">{Userdata?.user?.Fullname ? Userdata?.user?.Fullname : "User"}</p>
-                            <textarea className="outline-0 resize-none overflow-auto text-sm cursor-pointer sm:w-70" value={Userdata?.user?.Bio}  rows={5} readOnly />
+                            <textarea className="outline-0 resize-none overflow-auto text-sm cursor-pointer sm:w-70" value={Userdata?.user?.Bio} rows={5} readOnly />
                         </div>
                     </div>
+                </div>
+
+                <div className="lg:hidden mt-4 flex flex-col">
+                    <p className="font-bold">{Userdata?.user?.Fullname ? Userdata?.user?.Fullname : "User"}</p>
+                    <textarea className="outline-0 resize-none overflow-auto text-sm cursor-pointer sm:w-70" value={Userdata?.user?.Bio} rows={5} readOnly />
                 </div>
 
                 <div className="mt-7 border-gray-300 border-t-1 flex sm:gap-20 gap-10 justify-center">
@@ -72,11 +75,11 @@ const Profile = () => {
 
                 {
                     select == "Posts" &&
-                    <div className="mt-5 grid grid-cols-3 gap-1">
+                    <div className="mt-5 grid grid-cols-3 lg:pb-0 pb-8 gap-1">
                         {
                             isLoadingPosts
                                 ? [...Array(9)].map((_, index) => (
-                                    <div key={index} className="bg-gray-300 animate-pulse w-full xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30 rounded" />
+                                    <div key={index} className="bg-gray-300 animate-pulse w-full xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30" />
                                 ))
 
                                 : Userpost?.Post?.length > 0
@@ -96,31 +99,36 @@ const Profile = () => {
 
                 {
                     select == "Saved" &&
-                    <div className="mt-5 grid grid-cols-3 gap-1">
+                    <div className="mt-5 grid grid-cols-3 lg:pb-0 pb-8 gap-1">
                         {
-                            SavePost?.Saved?.length > 0
-                                ? SavePost?.Saved?.map((item, index) => (
-                                    // Userdata?.user?.Following?.includes(item?.Author?._id) &&
-                                    <div key={index}>
-                                        <img src={item?.Image} className="border-1 border-gray-200 xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30 w-full cursor-pointer" onClick={() => navigate(`/postDetails/${item?._id}`)} />
-                                    </div>
+                            isLoadingPosts
+                                ? [...Array(9)].map((_, index) => (
+                                    <div key={index} className="bg-gray-300 animate-pulse w-full xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30" />
                                 ))
-                                : <div className="flex flex-col mt-30 w-[105%] ml-87 items-center justify-enter">
-                                    <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                                        You haven’t saved anything yet
-                                    </h2>
 
-                                    <p className="text-gray-500 text-sm font-semibold mb-4 max-w-md">
-                                        Your saved posts will show up here.
-                                    </p>
+                                : SavePost?.Saved?.length > 0
+                                    ? SavePost?.Saved?.map((item, index) => (
+                                        // Userdata?.user?.Following?.includes(item?.Author?._id) &&
+                                        <div key={index}>
+                                            <img src={item?.Image} className="border-1 border-gray-200 xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30 w-full cursor-pointer" onClick={() => navigate(`/postDetails/${item?._id}`)} />
+                                        </div>
+                                    ))
+                                    : <div className="flex flex-col mt-30 w-[105%] ml-87 items-center justify-enter">
+                                        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                                            You haven’t saved anything yet
+                                        </h2>
 
-                                    <button
-                                        onClick={() => navigate('/explore')}
-                                        className="bg-pink-600 cursor-pointer text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-700 transition shadow-md"
-                                    >
-                                        Explore Popular Posts
-                                    </button>
-                                </div>
+                                        <p className="text-gray-500 text-sm font-semibold mb-4 max-w-md">
+                                            Your saved posts will show up here.
+                                        </p>
+
+                                        <button
+                                            onClick={() => navigate('/explore')}
+                                            className="bg-pink-600 cursor-pointer text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-700 transition shadow-md"
+                                        >
+                                            Explore Popular Posts
+                                        </button>
+                                    </div>
                         }
                     </div>
                 }

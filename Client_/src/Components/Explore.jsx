@@ -30,7 +30,7 @@ const Explore = () => {
                 <SideBar />
             </div>
 
-            <div className='lg:w-[83%] w-full md:px-20 px-4 lg:mt-5 mt-18 mb-5 overflow-auto h-full'>
+            <div className='lg:w-[83%] w-full md:px-20 p-1 lg:mt-5 mt-15 mb-15 overflow-auto h-full'>
                 {
                     isLoading ? (
                         <div className="columns-2 sm:columns-3 gap-1 space-y-1">

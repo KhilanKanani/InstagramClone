@@ -75,15 +75,15 @@ const EditPost = () => {
                     <SideBar />
                 </div>
 
-                <div className='lg:w-[83%] w-full xl:px-90 lg:px-50 px-4 lg:pt-10 pt-20 pb-5 animate-pulse'>
-                    <div className='flex items-center gap-2'> 
-                        <div className='h-6 w-6 rounded-full bg-gray-300 mb-5'></div>
+                <div className='lg:w-[83%] w-full xl:px-90 lg:px-50 px-1 lg:pt-10 pt-20 pb-18 animate-pulse'>
+                    <div className='flex items-center gap-2'>
+                        {/* <div className='h-6 w-6 rounded-full bg-gray-300 mb-5'></div> */}
                         <div className='h-6 w-32 bg-gray-300 rounded mb-5'></div>
                     </div>
 
-                    <div className='w-full lg:h-[400px] h-[250px] bg-gray-200 rounded-lg mb-5'></div>
+                    <div className='w-full lg:h-[400px] h-[250px] bg-gray-200 rounded-lg mt-3 mb-6'></div>
 
-                    <div className='h-5 w-24 bg-gray-300 mb-2 rounded'></div>
+                    <div className='h-5 w-24 bg-gray-300 mb-3 rounded'></div>
                     <div className='h-20 w-full bg-gray-100 rounded-lg'></div>
 
                     <div className='mt-5 h-10 w-32 bg-gray-300 rounded'></div>
@@ -124,10 +124,10 @@ const EditPost = () => {
             </div>
 
             {/* :: Edit Form Content :: */}
-            <div className="w-full lg:w-[83%] xl:px-90 lg:px-50 sm:px-40 px-4 lg:pt-10 pt-20 pb-6 overflow-auto scroll-smooth">
+            <div className="w-full lg:w-[83%] xl:px-90 lg:px-50 sm:px-40 px-1 lg:pt-10 pt-18 pb-18 overflow-auto scroll-smooth">
 
                 <div className='flex gap-1 items-center mb-6'>
-                    <p onClick={() => navigate(`/postDetails/${id}`)}> <IoArrowBackSharp className='text-[22px] mt-1 cursor-pointer' /></p>
+                    {/* <p onClick={() => navigate(`/postDetails/${id}`)}> <IoArrowBackSharp className='text-[22px] mt-1 cursor-pointer' /></p> */}
                     <h1 className="text-2xl font-bold text-gray-800">Edit Post</h1>
                 </div>
 
@@ -138,7 +138,7 @@ const EditPost = () => {
                         className="rounded-lg border border-gray-300 w-full lg:h-[400px] object-fit h-[250px] shadow-md"
                     />
                 </div>
- 
+
                 {/* :: Caption Edit :: */}
                 <div className="mt-5">
                     <label className="block font-semibold text-lg mb-2 text-gray-800">Caption :</label>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { SERVER_URL } from '../main';
 import { useEffect } from 'react';
+import { IoArrowBackSharp } from 'react-icons/io5';
 const OtherUser = () => {
 
     FindOtherUser();
@@ -39,23 +40,23 @@ const OtherUser = () => {
             followMap[item._id] = item?.Followers?.includes(Userdata?.user?._id);
         });
         setFollowStates(followMap);
-        setSuggestLoading(false); 
+        setSuggestLoading(false);
     }, [Otheruser, Userdata]);
 
 
     return (
-        <div className="flex w-full h-full bg-gradient-to-b from-white to-gray-50">
+        <div className="flex w-full h-[100vh] bg-gradient-to-b from-white to-gray-50">
             {/* Sidebar */}
             <div className="lg:w-[17%]">
                 <SideBar />
             </div>
 
             {/* Main */}
-            <div className="mt-20 mb-5 lg:w-[83%] w-full h-[100vh] flex flex-col items-center">
-                <div className="w-full max-w-xl px-4 flex flex-col gap-3">
+            <div className="mt-18 lg:mt-10 lg:w-[83%] w-full h-[92vh] flex flex-col items-center">
+                <div className="w-full max-w-xl px-1 flex flex-col gap-3">
 
                     {/* Title */}
-                    <h1 className="font-bold text-[24px] text-gray-800 tracking-tight">Suggested Users</h1>
+                    <h1 className="font-bold text-[24px] text-gray-800">Suggested Users</h1>
 
                     {/* Content */}
                     {suggestLoading ? (
@@ -103,8 +104,8 @@ const OtherUser = () => {
                                     onClick={() => handleFollowUnfollow(user._id)}
                                     disabled={loading}
                                     className={`text-sm font-semibold px-3 py-1.5 rounded-md transition-all duration-200 ${followStates[user._id]
-                                            ? 'bg-gray-200 text-black hover:bg-gray-300'
-                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                        ? 'bg-gray-200 text-black hover:bg-gray-300'
+                                        : 'bg-blue-500 text-white hover:bg-blue-600'
                                         }`}
                                 >
                                     {followStates[user._id] ? 'Following' : 'Follow'}
@@ -114,7 +115,7 @@ const OtherUser = () => {
                     )}
 
                     {/* Footer */}
-                    <p className="text-gray-400 text-sm text-center mt-5 mb-3 font-medium">
+                    <p className="text-gray-400 text-sm text-center lg:mt-5 mt-3 lg:mb-3 mb-20 font-medium">
                         &copy; 2025 - Present Kk's Pvt Ltd.
                     </p>
                 </div>

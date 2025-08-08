@@ -88,78 +88,85 @@ const ShowSelectProfile = () => {
 
             {
                 isLoading
-                    ? <div className='lg:w-[83%] mt-20 w-full lg:px-30 lg:mt-10'>
+                    ? <div className='lg:w-[83%] p-1 w-full lg:px-30 lg:mt-10 mt-18'>
                         {/* Profile Header Loading */}
-                        <div className="w-full h-[230px] flex gap-20">
+                        <div className="w-full h-[230px] flex lg:gap-20 gap-3">
                             <div>
-                                <div className="h-40 w-40 rounded-full bg-gray-300"></div>
+                                <div className="lg:h-40 lg:w-40 w-30 h-30 rounded-full bg-gray-300"></div>
                             </div>
 
-                            <div className='flex flex-col gap-4'>
+                            <div className='mt-2 flex flex-col gap-4'>
                                 <div className="flex gap-3">
-                                    <div className="w-48 h-6 bg-gray-300 rounded"></div>
-                                    <div className="w-20 h-6 bg-gray-300 rounded"></div>
-                                    <div className="w-24 h-6 bg-gray-300 rounded"></div>
+                                    <div className="lg:w-48 w-30 h-6 bg-gray-300 rounded"></div>
+                                    <div className="lg:w-20 w-0 h-6 bg-gray-300 rounded"></div>
+                                    <div className="lg:w-24 w-0 h-6 bg-gray-300 rounded"></div>
                                 </div>
 
-                                <div className="flex gap-10 mt-5">
-                                    <div className="w-24 h-5 bg-gray-300 rounded"></div>
-                                    <div className="w-24 h-5 bg-gray-300 rounded"></div>
-                                    <div className="w-24 h-5 bg-gray-300 rounded"></div>
+                                <div className="flex lg:gap-10 gap-2 mt-5">
+                                    <div className="lg:w-24 w-10 h-5 bg-gray-300 rounded"></div>
+                                    <div className="lg:w-24 w-10 h-5 bg-gray-300 rounded"></div>
+                                    <div className="lg:w-24 w-10 h-5 bg-gray-300 rounded"></div>
                                 </div>
 
                                 <div className='mt-5 space-y-2'>
-                                    <div className='w-40 h-4 bg-gray-300 rounded'></div>
-                                    <div className='w-[400px] h-4 bg-gray-300 rounded'></div>
-                                    <div className='w-[300px] h-4 bg-gray-300 rounded'></div>
+                                    <div className='lg:w-40 w-10 h-4 bg-gray-300 rounded'></div>
+                                    <div className='lg:w-[400px] w-20 h-4 bg-gray-300 rounded'></div>
+                                    <div className='lg:w-[300px] w-30 h-4 bg-gray-300 rounded'></div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Tabs */}
-                        <div className="mt-7 border-gray-300 border-t-1 flex gap-20 justify-center">
+                        <div className="mt-5 border-gray-300 border-t-1 flex gap-20 justify-center">
                             <div className="h-6 w-24 bg-gray-300 rounded mt-3"></div>
                         </div>
 
                         {/* Grid of Posts Loading */}
                         <div className="mt-5 grid grid-cols-3 gap-1">
                             {[...Array(6)].map((_, i) => (
-                                <div key={i} className="cursor-pointer border-1  bg-gray-300 border-gray-200 xl:h-100 lg:h-70 md:h-50 sm:h-30 h-20 w-full" />
+                                <div key={i} className="cursor-pointer border-1  bg-gray-300 border-gray-200 xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30  w-full" />
                             ))}
                         </div>
                     </div>
 
-                    : <div className='lg:w-[83%] mt-20 w-full lg:px-30 lg:mt-10'>
-                        <div className="w-full h-[230px] flex gap-20">
+                    : <div className='lg:w-[83%] mt-18 w-full p-1 lg:px-30 lg:mt-10'>
+                        <div className="w-full lg:h-[230px] flex lg:gap-20 xs:gap-7 gap-3">
                             <div>
-                                <img src={selectProfile?.user?.Image} className="h-40 w-40 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => window.open(selectProfile?.user?.Image, "_blank")} />
+                                <img src={selectProfile?.user?.Image} className="lg:h-40 lg:w-40 h-30 w-30 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => window.open(selectProfile?.user?.Image, "_blank")} />
                             </div>
 
-                            <div>
-                                <div className="flex gap-2">
-                                    <p className="font-semibold text-2xl pr-3">{selectProfile?.user?.Username}</p>
-                                    <button onClick={handleFollowUnfollow} disabled={loading} className="cursor-pointer">
-                                        {
-                                            !follow
-                                                ? <p className="bg-blue-500  hover:bg-blue-600 text-white cursor-ointer py-1 px-4 rounded-md font-semibold outline-0 cursor-pointer">Follow</p>
-                                                : <p className="bg-gray-200 text-black hover:bg-gray-300 cursor-ointer py-1 px-4 rounded-md font-semibold outline-0 cursor-pointer">Following</p>
-                                        }
-                                    </button>
-                                    {/* <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); follow && navigate(`/message`) }}>Message</button> */}
-                                    <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); navigate(`/message`) }}>Message</button>
+                            <div className='flex flex-col lg:gap-5 gap-3'>
+                                <div className="flex lg:flex-row flex-col gap-1 sm:gap-3">
+                                    <p className="font-bold text-2xl pr-3">{selectProfile?.user?.Username}</p>
+                                    <div className="flex gap-1">
+                                        <button onClick={handleFollowUnfollow} disabled={loading} className="cursor-pointer text-sm sm:text-[16px]">
+                                            {
+                                                !follow
+                                                    ? <p className="bg-blue-500  hover:bg-blue-600 text-white cursor-ointer py-1 lg:px-4 px-2 rounded-md font-semibold outline-0 cursor-pointer">Follow</p>
+                                                    : <p className="bg-gray-200 text-black hover:bg-gray-300 cursor-ointer py-1 lg:px-4 px-2 rounded-md font-semibold outline-0 cursor-pointer">Following</p>
+                                            }
+                                        </button>
+                                        {/* <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); follow && navigate(`/message`) }}>Message</button> */}
+                                        <button className="bg-gray-200 sm:text-[16px] text-sm hover:bg-gray-300 cursor-pointer lg:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); navigate(`/message`) }}>Message</button>
+                                    </div>
                                 </div>
 
-                                <div className="mt-7 flex gap-10">
-                                    <p className="font-bold text-xl">{SelectUserPost?.Post?.length && millify(SelectUserPost?.Post?.length) || 0} <span className="text-gray-400 text-[14px] font-semibold">Post</span></p>
-                                    <p onClick={() => { localStorage.setItem("select", "Followers"); follow && navigate(`/profiledata/${selectProfile?.user?._id}`) }} className="font-bold text-xl cursor-pointer">{selectProfile?.user?.Followers?.length > 0 ? followCount : 0} <span className="text-gray-400 text-[14px] font-semibold ">Followers</span></p>
-                                    <p onClick={() => { localStorage.setItem("select", "Following"); follow && navigate(`/profiledata/${selectProfile?.user?._id}`) }} className="font-bold text-xl cursor-pointer">{selectProfile?.user?.Following?.length > 0 ? millify(selectProfile?.user?.Following.length) : 0} <span className="text-gray-400 text-[14px] font-semibold ">Following</span></p>
+                                <div className=" flex lg:gap-10 xs:gap-5 gap-2">
+                                    <p className="font-bold text-xl flex lg:flex-row flex-col items-center justify-center lg:gap-1">{SelectUserPost?.Post?.length && millify(SelectUserPost?.Post?.length) || 0} <span className="text-gray-400 text-[14px] font-semibold">Post</span></p>
+                                    <p onClick={() => { localStorage.setItem("select", "Followers"); follow && navigate(`/profiledata/${selectProfile?.user?._id}`) }} className="font-bold flex  text-xl cursor-pointer lg:flex-row flex-col items-center justify-center lg:gap-1">{selectProfile?.user?.Followers?.length > 0 ? followCount : 0} <span className="text-gray-400 text-[14px] sm:text-[14px]  lg:mt-1 font-semibold ">Followers</span></p>
+                                    <p onClick={() => { localStorage.setItem("select", "Following"); follow && navigate(`/profiledata/${selectProfile?.user?._id}`) }} className="font-bold flex text-xl cursor-pointer lg:flex-row flex-col items-center justify-center lg:gap-1">{selectProfile?.user?.Following?.length > 0 ? millify(selectProfile?.user?.Following.length) : 0} <span className="text-gray-400 text-[14px] sm:text-[14px] font-semibold  lg:mt-1 ">Following</span></p>
                                 </div>
 
-                                <div className="mt-5">
+                                <div className="mt-5 overflow-scroll lg:inline-block hidden">
                                     <p className="font-bold">{selectProfile?.user?.Fullname}</p>
-                                    <textarea className="outline-0 resize-none overflow-auto text-sm" value={selectProfile?.user?.Bio} cols={50} rows={5} readOnly />
+                                    <textarea className="outline-0 resize-none overflow-auto w-70 text-sm" value={selectProfile?.user?.Bio} rows={5} readOnly />
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="mt-4 overflow-scroll inline-block lg:hidden">
+                            <p className="font-bold">{selectProfile?.user?.Fullname}</p>
+                            <textarea className="outline-0 resize-none overflow-auto w-70 text-sm" value={selectProfile?.user?.Bio} rows={5} readOnly />
                         </div>
 
                         <div className="mt-7 border-gray-300 border-t-1 flex gap-20 justify-center">
@@ -174,7 +181,7 @@ const ShowSelectProfile = () => {
                                             <div key={index}>
                                                 <img
                                                     src={item?.Image}
-                                                    className="cursor-pointer border-1 border-gray-200 xl:h-100 lg:h-70 md:h-50 sm:h-30 h-20 w-full"
+                                                    className="cursor-pointer border-1 border-gray-200 xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30  w-full"
                                                     onClick={() => navigate(`/postDetails/${item?._id}`)}
                                                 />
                                             </div>))

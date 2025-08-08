@@ -88,10 +88,10 @@ const EditProfile = () => {
                 <SideBar />
             </div>
 
-            <div className="lg:px-50 sm:px-30 px-4 lg:mt-10 mt-20 mb-10 lg:w-[83%]  h-[100%] ">
+            <div className="lg:px-50 sm:px-30 px-1 lg:mt-10 mt-18 mb-10 lg:w-[83%]  h-[100%] ">
                 <div className="flex gap-1 items-center">
-                    <p className='inline lg:hidden' onClick={() => navigate(`/profile`)}> <IoArrowBackSharp className='text-[22px] mt-1 mb-5 cursor-pointer' /></p>
-                    <h1 className=" font-bold text-[22px] mb-5 cursor-pointer">Edit Profile</h1>
+                    {/* <p className='inline lg:hidden' onClick={() => navigate(`/profile`)}> <IoArrowBackSharp className='text-[22px] mt-1 mb-5 cursor-pointer' /></p> */}
+                    <h1 className=" font-bold text-[22px] mb-2 lg:mb-5 cursor-pointer">Edit Profile</h1>
                 </div>
 
                 <div className="">

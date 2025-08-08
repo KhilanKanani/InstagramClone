@@ -202,8 +202,8 @@ const Home = () => {
         <SideBar />
       </div>
 
-      {/* Middle Section */}
-      <div className='lg:w-[51%] w-full sm:px-30 px-1 lg:mt-5 mt-17 mb-15 overflow-auto h-full'>
+       {/* Middle Section */}
+      <div className='lg:w-[51%] w-full sm:px-30 px-1 lg:mt-5 mt-16 mb-15 overflow-auto h-full'>
         {
           loading
             ? <div className='flex flex-col gap-6' >
@@ -380,7 +380,7 @@ const Home = () => {
               }
             </div>
         }
-      </div>
+      </div> 
 
       {/* RightSideBar */}
       <div className='lg:w-[31%] hidden xl:pr-40 pr-10 mt-8 lg:flex flex-col gap-7 fixed right-0' onClick={() => { setToggle(null); setSendToggle(null) }}>

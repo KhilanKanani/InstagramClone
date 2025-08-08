@@ -42,22 +42,22 @@ const Search = () => {
                 <SideBar />
             </div>
 
-            <div className='flex flex-col justify-center lg:w-[83%] mt-15 px-4 w-full bg-white'>
+            <div className='flex flex-col justify-center lg:w-[83%] lg:mt-10 mb-13 px-1 w-full bg-white'>
 
-                <div className='fixed lg:top-0 top-10 w-full z-[20] bg-white'>
-                    <h1 className='lg:px-50 sm:px-20 bg-white w-full pt-10 pb-2 font-bold text-2xl z-[10]'>🔍 Search</h1>
+                <div className='fixed top-0 w-full z-[20] bg-white'>
+                    <h1 className='lg:px-50 sm:px-20 bg-white w-full lg:pt-10 pt-18 pb-2 font-bold text-2xl z-[10]'>🔍 Search</h1>
 
-                    <div className='lg:w-[70%] relative w-full pt-4 pb-2 bg-white flex items-center lg:px-50 sm:px-20 z-[10]'>
+                    <div className='lg:w-[70%] relative w-full pt-2 pb-2 bg-white flex items-center lg:px-50 sm:px-20 z-[10]'>
                         <span><IoSearch className='h-6.5 w-6.5 absolute bottom-4 lg:left-52 sm:left-22 left-2 cursor-pointer' /></span>
-                        <input type="text" value={input} onChange={(e) => setinput(e.target.value)} className='border-1 border-gray-300 mr-8  focus:ring-2 focus:ring-blue-400 outline-none transition-all bg-gray-100 rounded-full outline-0 py-2 px-11 w-full' placeholder='Search User...' />
+                        <input type="text" value={input} onChange={(e) => setinput(e.target.value)} className='border-1 border-gray-300 mr-2 focus:ring-2 focus:ring-blue-400 outline-none transition-all bg-gray-100 rounded-full outline-0 py-2 px-11 w-full' placeholder='Search User...' />
                         {
                             input &&
-                            <span><RxCross2 className='h-6.5 w-6.5 absolute bottom-4 lg:right-60.5 sm:right-31 right-11 cursor-pointer' onClick={() => setinput("")} /></span>
+                            <span><RxCross2 className='h-6.5 w-6.5 absolute bottom-4 lg:right-54.5 sm:right-25 right-5 cursor-pointer' onClick={() => setinput("")} /></span>
                         }
                     </div>
                 </div>
 
-                <div className='lg:px-50 sm:px-20 flex flex-col gap-3 lg:mt-25 mt-33 bg-white'>
+                <div className='lg:px-50 sm:px-20 flex flex-col gap-3 lg:mt-25 mt-43 bg-white'>
                     {
                         isLoading
                             ? [...Array(10)].map((_, index) => (
@@ -91,7 +91,7 @@ const Search = () => {
                                     </div>
                                 ))
 
-                                : <p className="text-center text-gray-500 text-md font-medium">
+                                : <p className="ml-3 text-gray-500 text-md font-medium">
                                     No users found
                                 </p>
                     }

@@ -203,7 +203,7 @@ const Home = () => {
       </div>
 
        {/* Middle Section */}
-      <div className='lg:w-[51%] w-full sm:px-30 px-1 lg:mt-5 mt-16 mb-15 overflow-auto h-full'>
+      <div className='lg:w-[51%] w-full sm:px-30 px-1 lg:mt-5 mt-16 lg:mb-5 mb-15 overflow-auto h-full'>
         {
           loading
             ? <div className='flex flex-col gap-6' >

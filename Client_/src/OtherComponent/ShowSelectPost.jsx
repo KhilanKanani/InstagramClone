@@ -194,7 +194,7 @@ const ShowSelectPost = () => {
                     <SideBar />
                 </div>
 
-                <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-1 lg:pt-10 mt-18 pb-15 overflow-auto scroll-smooth'>
+                <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-30 xs:px-10 px-1 lg:pt-10 pt-18 pb-15 overflow-auto scroll-smooth'>
 
                     {/* Fake post cards */}
                     <div className=''>

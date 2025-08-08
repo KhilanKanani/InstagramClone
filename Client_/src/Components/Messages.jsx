@@ -270,7 +270,7 @@ const Messages = () => {
                         //     </div>
                         // </div>
                     }
-                    <div className="flex items-center justify-between mt-3 px-3 py-3 bg-white rounded-lg shadow-md border border-gray-200">
+                    <div className="lg:hidden flex items-center justify-between mt-3 px-3 py-3 bg-white rounded-lg shadow-md border border-gray-200">
                         <p className="text-gray-800 font-bold text-base">💡Suggested User</p>
                         <button
                             onClick={() => navigate("/suggestedUser")}

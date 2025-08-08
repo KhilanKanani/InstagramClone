@@ -129,7 +129,7 @@ const ShowSelectProfile = () => {
                         </div>
                     </div>
 
-                    : <div className='lg:w-[83%] mt-18 w-full p-1 lg:px-30 lg:mt-10'>
+                    : <div className='lg:w-[83%] mt-18 w-full p-1 lg:px-30 lg:mt-10 overflow-auto scroll-smooth'>
                         <div className="w-full lg:h-[230px] flex lg:gap-20 xs:gap-7 gap-3">
                             <div>
                                 <img src={selectProfile?.user?.Image} className="lg:h-40 lg:w-40 h-30 w-30 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => window.open(selectProfile?.user?.Image, "_blank")} />
@@ -173,7 +173,7 @@ const ShowSelectProfile = () => {
                             <p className={`flex gap-1 justify-center items-center pt-3 cursor-pointer border-t-1 font-semibold  mt-[-0.5px] border-black" : "border-t-0`}><span><IoMdGrid className="h-5 w-5" /></span> Posts</p>
                         </div>
 
-                        <div className="mt-3 grid grid-cols-3 gap-1">
+                        <div className="mt-3 grid grid-cols-3 gap-1 mb-10 lg:mb-0">
                             {
                                 follow
                                     ? SelectUserPost?.Post?.length > 0

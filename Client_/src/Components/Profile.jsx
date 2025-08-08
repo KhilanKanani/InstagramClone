@@ -92,7 +92,7 @@ const Profile = () => {
                                             <img src={item?.Image} className="border-1 border-gray-200 xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30 w-full cursor-pointer" onClick={() => navigate(`/postDetails/${item?._id}`)} />
                                         </div>
                                     ))
-                                    : <div className="flex flex-col w-[100%] ml-87.5 gap-2 mt-30 justify-center items-center">
+                                    : <div className="flex flex-col w-[100vw] lg:w-[100%] lg:ml-87.5 gap-2 lg:mt-30 mt-10 justify-center items-center">
                                         <p className="font-bold text-2xl">Create your first post </p>
                                         <p className="text-sm font-semibold">Share your first point of view</p>
                                         <p className="mt-2 cursor-pointer font-semibold bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 w-fit rounded-full" onClick={() => navigate("/createpost")}>Create Post</p>
@@ -117,12 +117,12 @@ const Profile = () => {
                                             <img src={item?.Image} className="border-1 border-gray-200 xl:h-100 lg:h-80 md:h-70 sm:h-60 xs:h-50 h-30 w-full cursor-pointer" onClick={() => navigate(`/postDetails/${item?._id}`)} />
                                         </div>
                                     ))
-                                    : <div className="flex flex-col mt-30 w-[105%] ml-87 items-center justify-enter">
-                                        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                                    : <div className="flex flex-col lg:mt-30 w-[100vw] mt-10 lg:w-[105%] lg:ml-87 items-center justify-enter">
+                                        <h2 className="text-2xl px-2 lg:px-0 text-center font-bold text-gray-800 mb-2">
                                             You haven’t saved anything yet
                                         </h2>
 
-                                        <p className="text-gray-500 text-sm font-semibold mb-4 max-w-md">
+                                        <p className="text-gray-500 text-sm font-semibold mb-4 lg:max-w-md">
                                             Your saved posts will show up here.
                                         </p>
 

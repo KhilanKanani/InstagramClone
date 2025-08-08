@@ -47,7 +47,11 @@ const Profile = () => {
                     <div className="flex flex-col lg:gap-5 gap-3">
                         <div className="flex lg:flex-row flex-col items-start justify-start sm:gap-5 gap-1">
                             <p className="font-bold text-xl">{Userdata?.user?.Username}</p>
-                            <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer sm:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => navigate("/editprofile")}>Edit Profile</button>
+
+                            <div className="flex gap-1">
+                                <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer sm:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => navigate("/editprofile")}>Edit Profile</button>
+                                <button className="bg-gray-200 lg:hidden block hover:bg-gray-300 cursor-pointer sm:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => navigate("/logout")}>Logout</button>
+                            </div>
                         </div>
 
                         <div className=" flex lg:gap-10 xs:gap-5 gap-2">

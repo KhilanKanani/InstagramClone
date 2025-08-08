@@ -139,7 +139,7 @@ const ShowSelectProfile = () => {
                                 <div className="flex lg:flex-row flex-col gap-1 sm:gap-3">
                                     <p className="font-bold text-2xl pr-3">{selectProfile?.user?.Username}</p>
                                     <div className="flex gap-1">
-                                        <button onClick={handleFollowUnfollow} disabled={loading} className="cursor-pointer text-sm sm:text-[16px]">
+                                        <button onClick={handleFollowUnfollow} disabled={loading} className="cursor-pointer ">
                                             {
                                                 !follow
                                                     ? <p className="bg-blue-500  hover:bg-blue-600 text-white cursor-ointer py-1 lg:px-4 px-2 rounded-md font-semibold outline-0 cursor-pointer">Follow</p>
@@ -147,7 +147,7 @@ const ShowSelectProfile = () => {
                                             }
                                         </button>
                                         {/* <button className="bg-gray-200 hover:bg-gray-300 cursor-pointer px-4 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); follow && navigate(`/message`) }}>Message</button> */}
-                                        <button className="bg-gray-200 sm:text-[16px] text-sm hover:bg-gray-300 cursor-pointer lg:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); navigate(`/message`) }}>Message</button>
+                                        <button className="bg-gray-200  hover:bg-gray-300 cursor-pointer lg:px-4 px-2 py-1 rounded-md font-semibold outline-0" onClick={() => { localStorage.setItem("selectedUser", JSON.stringify(selectProfile?.user)); navigate(`/message`) }}>Message</button>
                                     </div>
                                 </div>
 

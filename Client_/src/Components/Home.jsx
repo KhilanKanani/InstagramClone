@@ -304,7 +304,7 @@ const Home = () => {
                           <p><LuSend className="h-6.5 w-6.5 mb-[-4px] cursor-pointer" onClick={() => setSendToggle(id => id == item?._id ? null : item?._id)} /></p>
                           {
                             sendToggle === item?._id &&
-                              <div className='absolute lg:bottom-0 left-10 bottom-[30px] border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto sm:w-80 w-fit z-10 flex flex-col gap-2'>
+                              <div className='absolute lg:bottom-0 lg:left-20 left-10 bottom-[30px] border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto sm:w-80 w-fit z-10 flex flex-col gap-2'>
                               <p className='font-semibold text-gray-600'>Send this post to:</p>
                               <input type="text" placeholder="Write a message..." className="border rounded px-2 py-1.5 text-[15px] border-gray-300 outline-none" value={sendInput} onChange={(e) => setSendInput(e.target.value)} />
 

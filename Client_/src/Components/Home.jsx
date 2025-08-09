@@ -202,7 +202,7 @@ const Home = () => {
         <SideBar />
       </div>
 
-       {/* Middle Section */}
+      {/* Middle Section */}
       <div className='lg:w-[51%] w-full sm:px-30 px-1 lg:mt-5 mt-16 lg:mb-5 mb-15 overflow-auto h-full'>
         {
           loading
@@ -252,7 +252,7 @@ const Home = () => {
                           </div>
 
                           <div className='flex flex-col justify-center'>
-                            <p className="font-semibold text-[17px]">{item?.Author?.Username}</p>
+                            <p className="font-bold text-xl flex items-center gap-1">{item?.Author?.Username} <span>{item?.Author?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
                             <p className="text-gray-600 text-[14px] mt-[-4px] flex items-center">{item?.Author?.Fullname} </p>
                           </div>
                         </div>
@@ -261,7 +261,7 @@ const Home = () => {
                           <div className='relative'>
                             <p><IoMenu onClick={() => setToggle((id) => (id == item?._id ? null : item?._id))} className='w-7 h-7 cursor-pointer' /></p>
 
-                              <div className={`${toggle !== item?._id ? "hidden" : ""} sm:w-38 w-34 sm:text-[16px] text-sm  p-3 flex flex-col gap-1 rounded-lg bg-gray-100 absolute z-[10] right-0`}>
+                            <div className={`${toggle !== item?._id ? "hidden" : ""} sm:w-38 w-34 sm:text-[16px] text-sm  p-3 flex flex-col gap-1 rounded-lg bg-gray-100 absolute z-[10] right-0`}>
                               {
                                 Userdata?.user?._id == item?.Author?._id &&
                                 <p className='p-1 hover:bg-gray-200 px-4 rounded-lg cursor-pointer text-center font-semibold text-red-600' onClick={() => handleDeletePost(item?._id)}>Delete</p>
@@ -304,7 +304,7 @@ const Home = () => {
                           <p><LuSend className="h-6.5 w-6.5 mb-[-4px] cursor-pointer" onClick={() => setSendToggle(id => id == item?._id ? null : item?._id)} /></p>
                           {
                             sendToggle === item?._id &&
-                              <div className='absolute lg:bottom-0 lg:left-20 left-10 bottom-[30px] border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto sm:w-80 w-fit z-10 flex flex-col gap-2'>
+                            <div className='absolute lg:bottom-0 lg:left-20 left-10 bottom-[30px] border border-gray-200 bg-white shadow-lg rounded-lg p-3 h-auto sm:w-80 w-fit z-10 flex flex-col gap-2'>
                               <p className='font-semibold text-gray-600'>Send this post to:</p>
                               <input type="text" placeholder="Write a message..." className="border rounded px-2 py-1.5 text-[15px] border-gray-300 outline-none" value={sendInput} onChange={(e) => setSendInput(e.target.value)} />
 
@@ -380,7 +380,7 @@ const Home = () => {
               }
             </div>
         }
-      </div> 
+      </div>
 
       {/* RightSideBar */}
       <div className='lg:w-[31%] hidden xl:pr-40 pr-10 mt-8 lg:flex flex-col gap-7 fixed right-0' onClick={() => { setToggle(null); setSendToggle(null) }}>
@@ -389,7 +389,7 @@ const Home = () => {
             <img src={Userdata?.user?.Image} className="h-11 w-11 rounded-full cursor-pointer border-1 border-gray-200" onClick={() => navigate("/profile")} />
 
             <div className='flex flex-col justify-center'>
-              <p className="font-semibold text-md">{Userdata?.user?.Username}</p>
+              <p className="font-semibold text-md flex items-center gap-1">{Userdata?.user?.Username} <span>{Userdata?.user?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
               <p className="text-gray-600 text-[14px] mt-[-4px]">{Userdata?.user?.Fullname}</p>
             </div>
           </div>
@@ -433,7 +433,10 @@ const Home = () => {
                       </div>
 
                       <div className='flex flex-col justify-center'>
-                        <p className="font-semibold text-md">{item?.Username}</p>
+                        <p className="font-semibold text-md flex gap-1 items-center">{item?.Username}
+                          <span>{item?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span>
+                        </p>
+
                         <p className="text-gray-600 text-[14px] mt-[-4px]">{item?.Fullname}</p>
                       </div>
                     </div>

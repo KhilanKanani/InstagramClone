@@ -27,7 +27,7 @@ const Notification = () => {
                                     <div key={index} className="flex items-start gap-4 bg-white p-4 rounded-xl shadow-md hover:shadow-lg border border-gray-200 transition-shadow duration-300">
                                         <img src={item?.user?.Image || '/default-avatar.png'} alt="User" className="w-12 h-12 rounded-full object-cover border-2 border-gray-200" />
                                         <div className="flex flex-col justify-between">
-                                            <p className="text-lg font-semibold text-gray-800"> {item?.user?.Username || 'Unknown User'}</p>
+                                            <p className="text-lg font-semibold text-gray-800 flex items-center gap-1"> {item?.user?.Username || 'Unknown User'} <span>{item?.user?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
                                             <p className="text-sm text-gray-600 mt-1"> {item?.message || 'No message available.'}</p>
                                             <p className="text-xs text-gray-400 mt-1">
                                                 {

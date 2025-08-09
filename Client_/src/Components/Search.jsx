@@ -82,7 +82,7 @@ const Search = () => {
                                             </div>
 
                                             <div className='flex flex-col justify-center'>
-                                                <p className="font-semibold text-md">{item?.Username}</p>
+                                                <p className="font-semibold text-md flex items-center gap-1">{item?.Username} <span>{item?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
                                                 <p className="text-gray-600 text-[14px] mt-[-4px] flex items-center">
                                                     {item?.Fullname} <BsDot className='mb-[-2px]' /> {item?.Followers?.length && millify(item?.Followers?.length)} Followers
                                                 </p>

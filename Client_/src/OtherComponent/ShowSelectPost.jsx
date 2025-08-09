@@ -275,7 +275,7 @@ const ShowSelectPost = () => {
                             <img src={SelectPost?.Author?.Image} className="h-11 w-11 rounded-full cursor-pointer border-1 border-gray-200" />
 
                             <div className='flex flex-col justify-center'>
-                                <p className="font-semibold text-md">{SelectPost?.Author?.Username}</p>
+                                <p className="font-semibold text-md flex gap-1 items-center">{SelectPost?.Author?.Username} <span>{SelectPost?.Author?.Username === "Kk's" && <img src="/BlueTik.png" className="h-3 w-3" alt='bluetik' />}</span></p>
                                 <p className="text-gray-600 text-[14px] mt-[-4px]">{SelectPost?.Author?.Fullname}</p>
                             </div>
                         </div>

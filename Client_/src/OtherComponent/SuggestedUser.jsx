@@ -90,11 +90,13 @@ const OtherUser = () => {
                                             className="h-12 w-12 rounded-full object-cover transition-transform duration-200 group-hover:scale-105 border border-gray-300"
                                         />
                                         {OnlineUser?.includes(user._id) && (
-                                            <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 ring-2 ring-white animate-pulse" />
+                                            <div className="absolute bottom-0.5 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white" />
                                         )}
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="font-semibold text-[15px] text-gray-800">{user?.Username}</p>
+                                        <p className="font-semibold text-[15px] text-gray-800 flex items-center gap-1">{user?.Username}
+                                            <span>{user?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span>
+                                        </p>
                                         <p className="text-gray-500 text-sm">{user?.Fullname}</p>
                                     </div>
                                 </div>

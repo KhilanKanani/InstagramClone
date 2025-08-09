@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import millify from "millify";
 import axios from "axios";
 import { SERVER_URL } from "../main";
-import { setSelectProfile, setUserdata } from "../Redux/UserSlice";
+import { setSelectProfile } from "../Redux/UserSlice";
 import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import { setSelectUserPost } from "../Redux/PostSlice";
@@ -137,7 +137,10 @@ const ShowSelectProfile = () => {
 
                             <div className='flex flex-col lg:gap-5 gap-3'>
                                 <div className="flex lg:flex-row flex-col gap-1 sm:gap-3">
-                                    <p className="font-bold text-2xl pr-3">{selectProfile?.user?.Username}</p>
+                                    <p className="font-bold text-2xl flex items-center gap-1">{selectProfile?.user?.Username}
+                                        <span>{selectProfile?.user?.Username == "Kk's" && <img src="/BlueTik.png" className="h-3 w-3" alt="bluetik"/>}</span>
+                                    </p>
+                                    
                                     <div className="flex gap-1">
                                         <button onClick={handleFollowUnfollow} disabled={loading} className="cursor-pointer ">
                                             {
@@ -196,7 +199,7 @@ const ShowSelectProfile = () => {
                                                 This user hasn't shared anything yet. Once they do, their posts will show up here.
                                             </p>
                                             <button
-                                                onClick={() => navigate('/explore')}
+                                                onClick={() => navigate('/suggestedUser')}
                                                 className="mt-5 px-6 py-2 bg-blue-600 cursor-pointer hover:bg-blue-700 text-white  rounded-lg shadow-lg transition duration-300"
                                             >
                                                 Discover Other Creators

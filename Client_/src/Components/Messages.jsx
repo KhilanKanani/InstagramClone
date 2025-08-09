@@ -113,7 +113,8 @@ const Messages = () => {
                                         }
                                     </div>
                                     <div className='flex flex-col justify-center mt-[-8px]'>
-                                        <p className="font-semibold text-[17px]">{selectUser?.Fullname} </p>
+                                        <p className="font-semibold text-[17px] flex items-center gap-1">{selectUser?.Fullname} <span>{selectUser?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
+
                                         <p className=" text-gray-600 text-[15px] mt-[-4px] flex items-center">{selectUser?.Username}</p>
                                     </div>
                                 </div>
@@ -125,7 +126,7 @@ const Messages = () => {
                                         <img src={selectUser?.Image} className="h-30 w-30 rounded-full border-1 border-gray-300" />
 
                                         <div className='flex flex-col justify-center items-center'>
-                                            <p className='font-semibold text-xl'>{selectUser?.Fullname}</p>
+                                            <p className='font-semibold text-xl flex items-center gap-1'>{selectUser?.Fullname} <span>{selectUser?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
                                             <p className='text-sm opacity-70 flex'>{selectUser?.Username} <span className='mt-[5px]'><BsDot /></span> Kk's</p>
                                         </div>
 
@@ -186,7 +187,7 @@ const Messages = () => {
                 <div className='lg:pt-8 pt-5 fixed h-[135px] lg:h-[145px] top-0 z-[10] bg-white lg:w-[33%] w-full' >
                     <div className='lg:px-4 px-1.5 border-b-1 items-center border-gray-200 pb-3 flex gap-1'>
                         <p className='inline lg:hidden' onClick={() => navigate(`/`)}> <IoArrowBackSharp className='text-[22px] mt-0.5 cursor-pointer' /></p>
-                        <p className='font-bold text-2xl'>{Userdata?.user?.Username}</p>
+                        <p className='font-bold text-2xl flex items-center gap-1'>{Userdata?.user?.Username} <span>{Userdata?.user?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
                         <p><IoIosArrowDown className='w-4 cursor-pointer h-4' onClick={() => setToggle(prev => !prev)} /></p>
 
                         <div className={`${!toggle ? "hidden" : ""}`}>
@@ -230,7 +231,7 @@ const Messages = () => {
                                         </div>
 
                                         <div className='flex flex-col justify-center'>
-                                            <p className="font-semibold text-md ">{item?.Fullname} </p>
+                                            <p className="font-semibold text-md flex items-center gap-1">{item?.Fullname}<span>{item?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span> </p>
                                             <p className=" text-gray-600 text-[14px] mt-[-4px] flex items-center">{item?.Username}</p>
                                         </div>
                                     </div>

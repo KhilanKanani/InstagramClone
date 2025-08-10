@@ -85,7 +85,7 @@ const EditProfile = () => {
     return (
         <div className="flex w-[100%] h-[100%] mb-10">
             <div className="lg:w-[17%] h-[100%]">
-                <SideBar />
+                <SideBar Fullname={Fullname}/>
             </div>
 
             <div className="lg:px-50 sm:px-30 px-1 lg:mt-10 mt-18 mb-10 lg:w-[83%]  h-[100%] ">

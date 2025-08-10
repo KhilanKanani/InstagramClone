@@ -21,10 +21,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { RiMessengerFill, RiMessengerLine } from "react-icons/ri";
 
-import { FiPlusSquare } from "react-icons/fi";
-
-
-const SideBar = ({ loading, loadingSave, id }) => {
+const SideBar = ({ loading, loadingSave, id, Fullname }) => {
 
     const [toggle, settoggle] = useState(false);
     const navigate = useNavigate();
@@ -49,6 +46,10 @@ const SideBar = ({ loading, loadingSave, id }) => {
         if (Userdata?.user?.Fullname !== "") {
             navigate(routes);
         }
+        else if (Fullname !== "") {
+            toast.error("Please Save Them Before Leaving!");
+            navigate("/editprofile");
+        }
         else {
             toast.error("Fullname Is Required");
             navigate("/editprofile");
@@ -71,6 +72,10 @@ const SideBar = ({ loading, loadingSave, id }) => {
         if (Userdata?.user?.Fullname) {
             navigate("/profile", { state: { selectedTab: item } });
             // setselectProfile(item)
+        }
+        else if (Fullname !== "") {
+            toast.error("Please Save The Changes");
+            navigate("/editprofile");
         }
         else {
             toast.error("Fullname Is Required");
@@ -143,7 +148,7 @@ const SideBar = ({ loading, loadingSave, id }) => {
                     >
                         Post
                     </p>
-                    <p 
+                    <p
                         onClick={() => handleNavigateProfile("Saved")}
                         className="cursor-pointer hover:bg-gray-200 px-3 py-2 rounded-md text-sm font-semibold"
                     >

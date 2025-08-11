@@ -331,25 +331,36 @@ const ShowSelectPost = () => {
                                         <input type="text" placeholder="Write a message..." className="border rounded px-2 py-1.5 text-[15px] border-gray-300 outline-none" value={sendInput} onChange={(e) => setSendInput(e.target.value)} />
 
                                         <div className='flex flex-col gap-1 max-h-50 overflow-y-auto'>
-                                            {Otheruser?.otherUser?.map(user => {
-                                                const isSelected = selectedReceiver[SelectPost._id] === user._id;
-                                                const isOnline = OnlineUser?.includes(user._id);
+                                            {Otheruser?.otherUser?.some(user => followStates[user._id]) ?
+                                                Otheruser.otherUser.map(user => {
+                                                    const isOnline = OnlineUser?.includes(user._id);
+                                                    const isSelected = selectedReceiver[SelectPost._id] === user._id;
 
-                                                return (
-                                                    followStates[user._id] &&
-                                                    <div key={user._id} className={`flex items-center justify-between p-2 rounded-lg cursor-pointer ${isSelected ? 'bg-blue-100' : 'hover:bg-gray-100'}`} onClick={() => setSelectedReceiver(prev => ({ ...prev, [SelectPost._id]: user._id }))}>
-                                                        <div className='flex items-center gap-3'>
-                                                            <div className='relative'>
-                                                                <img src={user.Image} alt={user.Fullname} className='h-10 w-10 rounded-full border border-gray-200' />
-                                                                {isOnline && (
-                                                                    <div className='absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white shadow-sm' />
-                                                                )}
+                                                    return (
+                                                        followStates[user._id] &&
+                                                        <div key={user._id} className={`flex items-center justify-between p-2 rounded-lg cursor-pointer ${isSelected ? 'bg-blue-100' : 'hover:bg-gray-100'}`} onClick={() => setSelectedReceiver(prev => ({ ...prev, [SelectPost._id]: user._id }))}>
+                                                            <div className='flex items-center gap-3'>
+                                                                <div className='relative'>
+                                                                    <img src={user.Image} alt={user.Fullname} className='h-10 w-10 rounded-full border border-gray-200' />
+                                                                    {isOnline && (
+                                                                        <div className='absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white shadow-sm' />
+                                                                    )}
+                                                                </div>
+                                                                <span className='font-semibold text-sm'>{user.Fullname}</span>
                                                             </div>
-                                                            <span className='font-semibold text-sm'>{user.Fullname}</span>
                                                         </div>
-                                                    </div>
-                                                );
-                                            })}
+                                                    )
+
+                                                })
+                                                : <div className='flex flex-col items-center justify-center  text-center'>
+                                                    <img src="https://img.freepik.com/free-vector/social-media-network-connection_74855-4568.jpg?w=500" alt='No Users' className='w-24 h-24 mb-4 opacity-80' />
+                                                    <h2 className='text-lg font-bold text-gray-700'>No users available</h2>
+                                                    <p className='text-sm text-gray-500 mt-1'>
+                                                        Looks like there’s no one to follow right now. Check back later!
+                                                    </p>
+                                                </div>
+
+                                            }
                                         </div>
 
                                         <button className='cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-1 flex items-center justify-center rounded mt-2 text-sm font-semibold transition-all disabled:opacity-70' disabled={sendLoading} onClick={() => { handleSendPost(selectedReceiver[SelectPost._id], SelectPost.Image) }}>

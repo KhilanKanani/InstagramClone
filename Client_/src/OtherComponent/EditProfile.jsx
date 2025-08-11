@@ -83,12 +83,12 @@ const EditProfile = () => {
     }
 
     return (
-        <div className="flex w-[100%] h-[100%] mb-10">
+        <div className="flex w-[100%] h-[100%]">
             <div className="lg:w-[17%] h-[100%]">
                 <SideBar Fullname={Fullname}/>
             </div>
 
-            <div className="lg:px-50 sm:px-30 px-1 lg:mt-10 mt-18 mb-10 lg:w-[83%]  h-[100%] ">
+            <div className="lg:px-50 sm:px-30 px-1 lg:mt-10 mt-18 md:mb-10 mb-20 lg:w-[83%] h-[100%] ">
                 <div className="flex gap-1 items-center">
                     {/* <p className='inline lg:hidden' onClick={() => navigate(`/profile`)}> <IoArrowBackSharp className='text-[22px] mt-1 mb-5 cursor-pointer' /></p> */}
                     <h1 className=" font-bold text-[22px] mb-2 lg:mb-5 cursor-pointer">Edit Profile</h1>

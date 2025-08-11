@@ -137,7 +137,7 @@ const ShowSelectProfile = () => {
 
                             <div className='flex flex-col lg:gap-5 gap-3'>
                                 <div className="flex lg:flex-row flex-col gap-1 sm:gap-3">
-                                    <p className="font-bold text-2xl flex items-center gap-1">{selectProfile?.user?.Username}
+                                    <p className="font-bold text-xl flex items-center gap-1">{selectProfile?.user?.Username}
                                         <span>{selectProfile?.user?.Username == "Kk's" && <img src="/BlueTik.png" className="h-3 w-3" alt="bluetik"/>}</span>
                                     </p>
                                     

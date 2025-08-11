@@ -63,7 +63,7 @@ const Explore = () => {
                             </p>
                             <button
                                 onClick={() => navigate('/suggestedUser')}
-                                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full font-semibold shadow-md hover:opacity-90 transition"
+                                className="bg-gradient-to-r cursor-pointer from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full font-semibold shadow-md hover:opacity-90 transition"
                             >
                                 Explore & Follow Users
                             </button>

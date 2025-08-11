@@ -251,7 +251,7 @@ const ShowSelectPost = () => {
                     <p className='text-gray-500 mb-4 sm:w-75'>The post you're looking for doesn’t exist or has been removed.</p>
                     <button
                         onClick={() => navigate('/explore')}
-                        className='bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold'
+                        className='bg-blue-500 cursor-pointer hover:bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold'
                     >
                         Go Back to Explore
                     </button>

@@ -252,7 +252,7 @@ const Home = () => {
                           </div>
 
                           <div className='flex flex-col justify-center'>
-                            <p className="font-bold text-xl flex items-center gap-1">{item?.Author?.Username} <span>{item?.Author?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
+                            <p className="font-bold text-lg flex items-center gap-1">{item?.Author?.Username} <span>{item?.Author?.Username === "Kk's" && <img src="BlueTik.png" className="h-3 w-3" />}</span></p>
                             <p className="text-gray-600 text-[14px] mt-[-4px] flex items-center">{item?.Author?.Fullname} </p>
                           </div>
                         </div>

@@ -1,6 +1,6 @@
 ﻿# InstagramClone
 
-A full-featured Instagram Clone built with MERN Stack + Socket.io, enabling real-time chat, image sharing, likes, follows, and modern UI with TailwindCSS.
+A full-featured Instagram Clone built with MERN Stack + Socket.io, enabling real-time chat, image sharing, likes, follows, and modern social app built for speed, scalability, and a clean UX with TailwindCSS.
 
 
 Live : https://instagramclone-7gdu.onrender.com
@@ -68,3 +68,4 @@ https://github.com/user-attachments/assets/b8a3eafa-a528-4998-b747-c3aae3145e92
 * Other UserProfile
 
 <img width="1919" height="1034" alt="Screenshot 2025-08-08 141526" src="https://github.com/user-attachments/assets/57817cd8-249f-4552-b2a7-c51dba7cc9a7" />
+

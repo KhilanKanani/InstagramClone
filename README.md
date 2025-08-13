@@ -10,7 +10,7 @@ Live : https://instagramclone-7gdu.onrender.com
 * User Authentication (JWT + Cookies)
 * Profile creation & editing
 * Image upload via Cloudinary
-* Create with caption & image, edit/delete your own, instant updates
+* Create Post with caption & image, edit/delete your own, instant updates
 * Like / Save / Share posts
 * Follow / Unfollow users, follower & following counts
 * Real-time chat with Socket.io
@@ -68,4 +68,5 @@ https://github.com/user-attachments/assets/b8a3eafa-a528-4998-b747-c3aae3145e92
 * Other UserProfile
 
 <img width="1919" height="1034" alt="Screenshot 2025-08-08 141526" src="https://github.com/user-attachments/assets/57817cd8-249f-4552-b2a7-c51dba7cc9a7" />
+
 

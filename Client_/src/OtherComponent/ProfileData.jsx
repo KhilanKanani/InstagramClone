@@ -121,7 +121,7 @@ const ProfileData = () => {
                 <SideBar />
             </div>
 
-            <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-20 px-1 pb-18 lg:pb-5 overflow-auto scroll-smooth'>
+            <div className='lg:w-[83%] w-full xl:px-80 lg:px-50 md:px-40 sm:px-20 px-1 pb-15 lg:pb-5 overflow-auto scroll-smooth'>
                 <div className=''>
                     <div className='flex bg-white lg:top-0 top-10 z-[10] w-full pt-10 pb-5 items-center lg:gap-3 gap-1.5 fixed'>
                         <IoArrowBackSharp className='text-[22px] mt-[2px] cursor-pointer' onClick={() => Userdata?.user?._id === id ? navigate("/profile") : navigate(`/selectprofile/${id}`)} />

@@ -55,7 +55,7 @@ const Profile = () => {
 
                         <div className=" flex lg:gap-10 xs:gap-5 gap-2">
                             <p className="font-bold text-xl flex lg:flex-row flex-col items-center justify-center lg:gap-1">{Userpost?.Post?.length && millify(Userpost?.Post?.length) || "0"} <span className="text-gray-400 text-[13px] sm:text-[14px] font-semibold lg:mt-1">Post</span></p>
-                            <p onClick={() => { localStorage.setItem("select", "Followers"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{millify(Userdata?.user?.Username == 'Kk's' ? 93054838384858 : Userdata?.user?.Followers.length)} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Followers</span></p>
+                            <p onClick={() => { localStorage.setItem("select", "Followers"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{Userdata?.user?.Username == "Kk's" ? millify(950353000042) : millify(Userdata?.user?.Followers.length) || "0"} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Followers</span></p>
                             <p onClick={() => { localStorage.setItem("select", "Following"); navigate(`/profiledata/${Userdata?.user?._id}`) }} className=" flex lg:flex-row flex-col items-center justify-center lg:gap-1 font-bold text-xl cursor-pointer">{millify(Userdata?.user?.Following.length) || "0"} <span className="text-gray-400  text-[13px] sm:text-[14px] font-semibold  lg:mt-1">Following</span></p>
                         </div>
 
